@@ -5,6 +5,7 @@ import useDropdown from 'react-dropdown-hook';
 import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 import { ExpandedMenu } from './ExpandedMenu';
+import { relative } from 'node:path';
 
 const Wrapper2 = styled(Wrapper)`
     padding: 10px;
@@ -20,14 +21,42 @@ const RightIcons = styled.div`
 `;
 
 const InputWrapper = styled.div`
-
+    margin: 20px;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    padding: 8px;
 `;
 
 const CustomImg = styled.img``;
 
 const CustomInput = styled.input`
-
+    border: none;
+    width: 100%;
+    padding: 8px;
+    margin: 0 20px 0 0;
+    &:hover {
+        outline: none;
+    }
+    &:focus {
+        outline: none;
+    }
 `;
+
+const MenuWrapper = styled.div`
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    align-items: center;
+    width: 250px;
+    justify-content: space-between;
+`;
+
+const LeftSide = styled.div``;
+
+interface ITopBarProps {
+
+}
 
 export const TopBar: FC = () => {
     return(
