@@ -13,7 +13,9 @@ const Wrapper2 = styled(Wrapper)`
 
 const InnerWrapper = styled.div`
     width: 1200px;
-    backgroud: ${Colors.white};
+    background: ${Colors.white};
+    display: flex;
+    align-items: center;
 `;
 
 const RightIcons = styled.div`
@@ -21,16 +23,18 @@ const RightIcons = styled.div`
 `;
 
 const InputWrapper = styled.div`
+
     margin: 20px;
-    border: 1px solid red;
+
     display: flex;
     align-items: center;
-    padding: 8px;
+
 `;
 
 const CustomImg = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    padding: 8px;
 `;
 
 const CustomInput = styled.input`
@@ -55,7 +59,10 @@ const MenuWrapper = styled.div`
     justify-content: space-between;
 `;
 
-const LeftSide = styled.div``;
+const LeftSide = styled.div`
+
+
+`;
 
 // interface ITopBarProps {
 //     title: any;
