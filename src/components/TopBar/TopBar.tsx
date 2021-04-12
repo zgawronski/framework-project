@@ -28,7 +28,10 @@ const InputWrapper = styled.div`
     padding: 8px;
 `;
 
-const CustomImg = styled.img``;
+const CustomImg = styled.img`
+    width: 50px;
+    height: 50px;
+`;
 
 const CustomInput = styled.input`
     border: none;
@@ -54,22 +57,50 @@ const MenuWrapper = styled.div`
 
 const LeftSide = styled.div``;
 
-interface ITopBarProps {
+// interface ITopBarProps {
+//     title: any;
+//     kbsdkbsdk: {
+//         jsdvj: string;
+//         iugonlvkns: boolean;
+//     }
+//     someTable: {
+//         a: string;
+//         b: string;
 
-}
+//     }
+
+// }
 
 export const TopBar: FC = () => {
+    const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
+
+    const menuHandler = () => {
+        toggleDropdown();
+    };
+
     return(
         <Wrapper2>
             <InnerWrapper>
                 <CustomImg src="./media/logo.png"/>
-                <div>
-                    <ExpandedMenu />
-                </div>
+
+                <MenuWrapper ref={wrapperRef}>
+                    <LeftSide onClick={menuHandler}>
+                        <img src="./media/icons/house.png" alt="" />
+                        <span>Home</span>
+                    </LeftSide>
+
+                   {dropdownOpen &&
+                        <ExpandedMenu />
+                    }
+                </MenuWrapper>
+
+
+                <div></div>
                 <InputWrapper>
                     <CustomInput type="text" />
                     <input type = "text" />
-                    <CustomImg src="./media/icons/search.png" alt="" title="" />
+
+                    <CustomImg src="./media/icons/search.png"/>
                 </InputWrapper>
                 <RightIcons>
                     <CustomImg src="./media/icons/house.png" />
