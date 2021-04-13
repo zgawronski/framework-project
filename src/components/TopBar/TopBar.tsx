@@ -7,15 +7,20 @@ import { Colors } from '../../styledHelpers/Colors';
 import { ExpandedMenu } from './ExpandedMenu';
 import { relative } from 'node:path';
 
+
 const Wrapper2 = styled(Wrapper)`
-    padding: 10px;
+    max-width: 1200px;
+    margin: auto;
+
 `;
 
 const InnerWrapper = styled.div`
-    width: 1200px;
+    width: 100%;
+    height: 40px;
     background: ${Colors.white};
     display: flex;
     align-items: center;
+    border: none;
 `;
 
 const RightIcons = styled.div`
@@ -23,18 +28,25 @@ const RightIcons = styled.div`
 `;
 
 const InputWrapper = styled.div`
-
+    width: 50%;
     margin: 20px;
-
+    border: 1px solid ${Colors.grey};
     display: flex;
     align-items: center;
 
 `;
 
 const CustomImg = styled.img`
+    margin: 0 5px 0 5px;
+`;
+const CustomSpan = styled.span`
+    position: absolute;
+`;
+
+const LogoImg = styled.img`
+    margin: 0 5px 0 5px;
     width: 30px;
-    height: 30px;
-    padding: 8px;
+
 `;
 
 const CustomInput = styled.input`
@@ -42,6 +54,7 @@ const CustomInput = styled.input`
     width: 100%;
     padding: 8px;
     margin: 0 20px 0 0;
+    text-align: center;
     &:hover {
         outline: none;
     }
@@ -60,23 +73,13 @@ const MenuWrapper = styled.div`
 `;
 
 const LeftSide = styled.div`
-
+    span{
+        margin: 0 5px 0px 5px;
+        font-size: 20px;
+        text-align: center;
+    }
 
 `;
-
-// interface ITopBarProps {
-//     title: any;
-//     kbsdkbsdk: {
-//         jsdvj: string;
-//         iugonlvkns: boolean;
-//     }
-//     someTable: {
-//         a: string;
-//         b: string;
-
-//     }
-
-// }
 
 export const TopBar: FC = () => {
     const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
@@ -88,24 +91,21 @@ export const TopBar: FC = () => {
     return(
         <Wrapper2>
             <InnerWrapper>
-                <CustomImg src="./media/logo.png"/>
+                <LogoImg  src="./media/logo.png"/>
 
                 <MenuWrapper ref={wrapperRef}>
                     <LeftSide onClick={menuHandler}>
-                        <img src="./media/icons/house.png" alt="" />
-                        <span>Home</span>
+                        <CustomImg src="./media/icons/house2.png" alt="" />
+                        <CustomSpan>Home</CustomSpan>
                     </LeftSide>
-
+                    <img onClick={menuHandler} src="./media/icons/arrow-down.png" alt="" />
                    {dropdownOpen &&
                         <ExpandedMenu />
                     }
                 </MenuWrapper>
 
-
-                <div></div>
                 <InputWrapper>
-                    <CustomInput type="text" />
-                    <input type = "text" />
+                    <CustomInput type="text" placeholder="Search"/>
 
                     <CustomImg src="./media/icons/search.png"/>
                 </InputWrapper>

@@ -4,18 +4,23 @@ import styled from 'styled-components';
 import { TopBar } from '../TopBar/TopBar';
 import { LeftMenu } from '../LeftMenu/LeftMenu';
 
-const Wrapper = styled.section`
+import { Colors } from '../../styledHelpers/Colors';
 
+
+const Wrapper = styled.section`
+    background-color: ${Colors.shadow};
 `;
 
 const Content = styled.div`
-max-width: 1200px;
-align-item: center;
-display: flex;
-
+    max-width: 1200px;
+    align-items: center;
+    display: flex;
+    margin: auto;
 `;
 
-
+const ContentDiv = styled.div`
+    padding: 10px;
+`;
 
 const MainPage: FC = () => {
     return (
@@ -23,7 +28,7 @@ const MainPage: FC = () => {
             <TopBar />
             <Content>
                 <LeftMenu />
-                <div>content</div>
+                <ContentDiv>content</ContentDiv>
             </Content>
         </Wrapper>
     );
