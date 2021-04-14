@@ -5,8 +5,8 @@ import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 
 const InnerWrapper = styled.div`
-    width: 250px;
-    height: auto;
+    width: 200px;
+    height: 240px;
     background: ${Colors.white};
     border-radius: 8px;
 `;
@@ -14,16 +14,18 @@ const InnerWrapper = styled.div`
 const LeftMain = styled.div`
     width: 250px;
     height: auto;
-    background-color: ${Colors.shadow};
+    background-color: ${Colors.darkgrey};
 
 
 `
 const PhotoBox = styled.div`
-    Width: 250px;
-    height: 300px;
+    Width: 100%;
+    height: 100%;
     background-color: ${Colors.white};
     text-align: center;
     display: block;
+    border-radius: 10px;
+    box-shadow: 0px 8px 5px -5px ${Colors.lightgrey};
 
 `;
 
@@ -56,6 +58,7 @@ const CustomHr = styled.hr`
 `;
 
 const BoxText = styled.div`
+    position: relative;
     padding: 5px;
 
 `;
@@ -67,8 +70,7 @@ const CustomText = styled.div`
 `;
 
 const CustomImg = styled.img`
-    padding: 5px;
-
+    margin-left: 10px;
 `;
 const CustomP = styled.p`
     padding: 5px;
@@ -77,7 +79,8 @@ const CustomP = styled.p`
 `;
 
 const ButtonImg = styled.img`
-
+    position: absolute;
+    right: 15px;
     padding: 3px;
     width: 20px;
     height: 15px;

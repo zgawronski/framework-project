@@ -8,7 +8,7 @@ import { Colors } from '../../styledHelpers/Colors';
 
 
 const Wrapper = styled.section`
-    background-color: ${Colors.shadow};
+    background-color: ${Colors.darkgrey};
 `;
 
 const Content = styled.div`
