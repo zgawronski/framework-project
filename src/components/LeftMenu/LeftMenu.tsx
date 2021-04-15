@@ -14,9 +14,6 @@ const InnerWrapper = styled.div`
 const LeftMain = styled.div`
     width: 250px;
     height: auto;
-    background-color: ${Colors.darkgrey};
-
-
 `
 const PhotoBox = styled.div`
     Width: 100%;

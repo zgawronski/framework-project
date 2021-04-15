@@ -11,6 +11,7 @@ import { relative } from 'node:path';
 const Wrapper2 = styled(Wrapper)`
     max-width: 1200px;
     margin: auto;
+    border-radius: 5px;
 
 `;
 
@@ -20,7 +21,6 @@ const InnerWrapper = styled.div`
     background: ${Colors.white};
     display: flex;
     align-items: center;
-    border: none;
 `;
 
 const RightIcons = styled.div`

@@ -1,12 +1,9 @@
 import React from 'react';
-
 import ReactDOM from 'react-dom';
-
 import { Reset } from 'styled-reset';
 
-
-
 import MainPage from './components/MainPage/MainPage';
+import { GlobalStyle } from './styledHelpers/GlobalStyle';
 
 
 
@@ -15,7 +12,7 @@ ReactDOM.render(
     <>
 
         <Reset />
-
+        <GlobalStyle />
         <MainPage />
 
     </>,
