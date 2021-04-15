@@ -5,14 +5,14 @@ import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 
 const InnerWrapper = styled.div`
-    width: 200px;
+    width: 220px;
     height: 240px;
     background: ${Colors.white};
     border-radius: 8px;
 `;
 
 const LeftMain = styled.div`
-    width: 250px;
+    width: 300px;
     height: auto;
 `
 const PhotoBox = styled.div`
@@ -22,7 +22,7 @@ const PhotoBox = styled.div`
     text-align: center;
     display: block;
     border-radius: 10px;
-    box-shadow: 0px 8px 5px -5px ${Colors.lightgrey};
+    box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
 
 `;
 
@@ -62,17 +62,15 @@ const BoxText = styled.div`
 const CustomText = styled.div`
     display: flex;
     width: 100%;
-
-
 `;
 
 const CustomImg = styled.img`
+    width: 20px;
     margin-left: 10px;
 `;
 const CustomP = styled.p`
     padding: 5px;
     text-align: left;
-
 `;
 
 const ButtonImg = styled.img`
@@ -83,7 +81,6 @@ const ButtonImg = styled.img`
     height: 15px;
     border: 1px solid;
     border-radius: 5px;
-
 `;
 export const LeftMenu: FC = () => {
     return (

@@ -5,5 +5,5 @@ export const Colors = {
     blue: '#00008b',
     grey: '#aaaaaa',
     silver: '#f9f9f9',
-    lightgrey:'#ccc'
+    lightgrey:'rgba(0, 0, 0, 0.1)'
 }

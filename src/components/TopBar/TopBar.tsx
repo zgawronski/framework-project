@@ -12,7 +12,6 @@ const Wrapper2 = styled(Wrapper)`
     max-width: 1200px;
     margin: auto;
     border-radius: 5px;
-
 `;
 
 const InnerWrapper = styled.div`
@@ -21,10 +20,13 @@ const InnerWrapper = styled.div`
     background: ${Colors.white};
     display: flex;
     align-items: center;
+    position: relative;
+    padding: 2px;
 `;
 
 const RightIcons = styled.div`
-
+    position: absolute;
+    right: 2px;
 `;
 
 const InputWrapper = styled.div`
