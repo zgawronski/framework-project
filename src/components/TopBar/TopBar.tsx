@@ -11,7 +11,9 @@ import { relative } from 'node:path';
 const Wrapper2 = styled(Wrapper)`
     max-width: 1200px;
     margin: auto;
+    margin-bottom: 10px;
     border-radius: 5px;
+    box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
 `;
 
 const InnerWrapper = styled.div`

@@ -19,6 +19,7 @@ const Content = styled.div`
 `;
 
 const ContentDiv = styled.div`
+
     padding: 10px;
 `;
 
@@ -28,7 +29,7 @@ const MainPage: FC = () => {
             <TopBar />
             <Content>
                 <LeftMenu />
-                <ContentDiv>content</ContentDiv>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, accusamus consequatur deserunt vitae, molestias laudantium est quisquam voluptas animi eius corrupti optio eum, quaerat id distinctio doloribus a amet at!
             </Content>
         </Wrapper>
     );

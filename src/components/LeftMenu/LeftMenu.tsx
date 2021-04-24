@@ -5,6 +5,7 @@ import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 
 const InnerWrapper = styled.div`
+    /* display: flex; */
     width: 220px;
     height: 240px;
     background: ${Colors.white};
@@ -12,15 +13,16 @@ const InnerWrapper = styled.div`
 `;
 
 const LeftMain = styled.div`
-    width: 300px;
+    width: 220px;
     height: auto;
+    padding: 5px;
+    margin-top: 5px;
 `
 const PhotoBox = styled.div`
     Width: 100%;
     height: 100%;
     background-color: ${Colors.white};
     text-align: center;
-    display: block;
     border-radius: 10px;
     box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
 
@@ -49,9 +51,7 @@ const JobDescription = styled.p`
 
 
 const CustomHr = styled.hr`
-    height: 1px;
-    border: none;
-    background-color: ${Colors.grey};
+    border-color: ${Colors.hrgrey};
 `;
 
 const BoxText = styled.div`
@@ -62,26 +62,35 @@ const BoxText = styled.div`
 const CustomText = styled.div`
     display: flex;
     width: 100%;
+    margin-bottom: 5px;
+
 `;
 
 const CustomImg = styled.img`
-    width: 20px;
+    width: 10%;
+    height: 10%;
     margin-left: 10px;
 `;
 const CustomP = styled.p`
-    padding: 5px;
+    width: 60%;
+    margin-left: 5px;
+    margin-right: 5px;
     text-align: left;
 `;
 
 const ButtonImg = styled.img`
-    position: absolute;
-    right: 15px;
     padding: 3px;
-    width: 20px;
-    height: 15px;
+    width: 7%;
+    height: 7%;
     border: 1px solid;
     border-radius: 5px;
 `;
+
+const LeftColumn = styled.section`
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+`
 export const LeftMenu: FC = () => {
     return (
         <Wrapper>
@@ -105,7 +114,18 @@ export const LeftMenu: FC = () => {
                     </BoxText>
                 </PhotoBox>
                 <LeftMain>
-
+                    <LeftColumn>
+                        <CustomImg src="./media/icons/publications.png" alt="" />
+                        <CustomP>Publications</CustomP>
+                    </LeftColumn>
+                    <LeftColumn>
+                        <CustomImg src="./media/icons/ecosystem.png" alt="" />
+                        <CustomP>Ecosystem</CustomP>
+                    </LeftColumn>
+                    <LeftColumn>
+                        <CustomImg src="./media/icons/entities2.png" alt="" />
+                        <CustomP>Entites</CustomP>
+                    </LeftColumn>
                 </LeftMain>
             </InnerWrapper>
 
