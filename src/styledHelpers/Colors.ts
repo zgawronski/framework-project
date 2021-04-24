@@ -6,5 +6,6 @@ export const Colors = {
     grey: '#aaaaaa',
     silver: '#f9f9f9',
     lightgrey:'rgba(0, 0, 0, 0.1)',
-    hrgrey: 'rgba(143, 143, 143, 0.171)'
+    hrgrey: 'rgba(143, 143, 143, 0.171)',
+    text: '#005581'
 }

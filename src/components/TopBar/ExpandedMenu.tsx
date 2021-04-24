@@ -1,17 +1,19 @@
 import { FC } from 'React';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+import { Colors } from '../../styledHelpers/Colors';
+
+const WrapperNav = styled.div`
     position: absolute;
     top: 24px;
     left: 0px;
-    background: white;
+    background: ${Colors.white};
     padding: 16px;
     border: 1px solid;
     z-index: 10;
     ul {
         width: 230px;
-        border: 1 solid black;
+        border: 1 solid ${Colors.black};
     }
 `;
 
@@ -19,7 +21,7 @@ const Wrapper = styled.div`
 
 export const ExpandedMenu: FC = () => {
     return (
-        <Wrapper>
+        <WrapperNav>
             <ul>
                 <li>a</li>
                 <li>a</li>
@@ -35,6 +37,6 @@ export const ExpandedMenu: FC = () => {
                 <li>a</li>
             </ul>
 
-        </Wrapper>
+        </WrapperNav>
     );
 };

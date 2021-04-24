@@ -1,26 +1,23 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-import { Wrapper } from '../../styledHelpers/Components';
+//import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 
-const InnerWrapper = styled.div`
+const WrapperLM = styled.section`
     /* display: flex; */
     width: 220px;
-    height: 240px;
-    background: ${Colors.white};
     border-radius: 8px;
 `;
 
 const LeftMain = styled.div`
+    margin-top: 5px;
     width: 220px;
     height: auto;
     padding: 5px;
-    margin-top: 5px;
 `
 const PhotoBox = styled.div`
     Width: 100%;
-    height: 100%;
     background-color: ${Colors.white};
     text-align: center;
     border-radius: 10px;
@@ -78,10 +75,15 @@ const CustomP = styled.p`
     text-align: left;
 `;
 
+const CustomA = styled.a`
+    margin-left: 5px;
+    text-decoration: none;
+`;
+
 const ButtonImg = styled.img`
-    padding: 3px;
+    padding: 5px 8px 5px 8px;
     width: 7%;
-    height: 7%;
+    height: 12px;
     border: 1px solid;
     border-radius: 5px;
 `;
@@ -90,11 +92,10 @@ const LeftColumn = styled.section`
     width: 100%;
     display: flex;
     margin-bottom: 10px;
-`
+`;
 export const LeftMenu: FC = () => {
     return (
-        <Wrapper>
-            <InnerWrapper>
+        <WrapperLM>
                 <PhotoBox>
                     <Photo src="./media/face.jpeg" alt=""/>
                     <Sign>Zbigniew Gawroński</Sign>
@@ -107,7 +108,7 @@ export const LeftMenu: FC = () => {
                             <ButtonImg src="./media/icons/user-plus.png" alt="" />
                         </CustomText>
                         <CustomText>
-                            <CustomImg src="./media/icons/publications.png" alt="" />
+                            <CustomImg src="./media/icons/publications4.png" alt="" />
                             <CustomP>Your Publications</CustomP>
                             <ButtonImg src="./media/icons/plus.png" alt="" />
                         </CustomText>
@@ -115,20 +116,18 @@ export const LeftMenu: FC = () => {
                 </PhotoBox>
                 <LeftMain>
                     <LeftColumn>
-                        <CustomImg src="./media/icons/publications.png" alt="" />
-                        <CustomP>Publications</CustomP>
+                        <CustomImg src="./media/icons/publications3.png" alt="" />
+                        <CustomA href="">Publications</CustomA>
                     </LeftColumn>
                     <LeftColumn>
                         <CustomImg src="./media/icons/ecosystem.png" alt="" />
-                        <CustomP>Ecosystem</CustomP>
+                        <CustomA href="">Ecosystem</CustomA>
                     </LeftColumn>
                     <LeftColumn>
                         <CustomImg src="./media/icons/entities2.png" alt="" />
-                        <CustomP>Entites</CustomP>
+                        <CustomA href="">Entites</CustomA>
                     </LeftColumn>
                 </LeftMain>
-            </InnerWrapper>
-
-        </Wrapper>
+        </WrapperLM>
     );
 };

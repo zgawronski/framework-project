@@ -5,7 +5,7 @@ import useDropdown from 'react-dropdown-hook';
 import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 import { ExpandedMenu } from './ExpandedMenu';
-import { relative } from 'node:path';
+//import { relative } from 'node:path';
 
 
 const Wrapper2 = styled(Wrapper)`
@@ -35,6 +35,7 @@ const InputWrapper = styled.div`
     width: 50%;
     margin: 20px;
     border: 1px solid ${Colors.grey};
+    border-radius: 3px;
     display: flex;
     align-items: center;
 
@@ -58,6 +59,7 @@ const CustomInput = styled.input`
     width: 100%;
     padding: 8px;
     margin: 0 20px 0 0;
+    border-radius: 3px;
     text-align: center;
     &:hover {
         outline: none;

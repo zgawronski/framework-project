@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { TopBar } from '../TopBar/TopBar';
 import { LeftMenu } from '../LeftMenu/LeftMenu';
 
-import { Colors } from '../../styledHelpers/Colors';
+//import { Colors } from '../../styledHelpers/Colors';
+import { MainContainer } from './MainContainer';
 
 
 const Wrapper = styled.section`
@@ -13,15 +14,15 @@ const Wrapper = styled.section`
 
 const Content = styled.div`
     max-width: 1200px;
-    align-items: center;
     display: flex;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 `;
 
-const ContentDiv = styled.div`
+// const ContentDiv = styled.div`
 
-    padding: 10px;
-`;
+//     padding: 10px;
+// `;
 
 const MainPage: FC = () => {
     return (
@@ -29,7 +30,7 @@ const MainPage: FC = () => {
             <TopBar />
             <Content>
                 <LeftMenu />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, accusamus consequatur deserunt vitae, molestias laudantium est quisquam voluptas animi eius corrupti optio eum, quaerat id distinctio doloribus a amet at!
+                <MainContainer/>
             </Content>
         </Wrapper>
     );
