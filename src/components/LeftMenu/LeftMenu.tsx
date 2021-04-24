@@ -11,7 +11,7 @@ const WrapperLM = styled.section`
 `;
 
 const LeftMain = styled.div`
-    margin-top: 5px;
+    margin-top: 10px;
     width: 220px;
     height: auto;
     padding: 5px;
