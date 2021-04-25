@@ -6,6 +6,7 @@ import { fontSize } from '../../styledHelpers/FontSizes';
 
 const Wrapper4 = styled.section`
     display: flex;
+    position: relative;
     width: 100%;
     max-width: 970px;
     min-height: 240px;
@@ -16,9 +17,11 @@ const Wrapper4 = styled.section`
     box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
 `;
 const MainImg = styled.img`
+    margin-top: -5px;
+    margin-left: -5px;
     max-width: 300px;
-    max-height: 300px;
-    border-radius: 5px;
+    height: 300px;
+    border-radius: 5px 0 0 5px;
 `;
 
 const MainText = styled.div`

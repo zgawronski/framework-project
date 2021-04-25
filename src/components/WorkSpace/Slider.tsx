@@ -5,20 +5,28 @@ import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 
 const MainSlider = styled.div`
-    overflow-x: scroll;
+    overflow-x: auto;
     display: flex;
     width: 980px;
     margin: 10px;
-    border-radius: 8px;
+    scroll-behavior: smooth;
+    ::-webkit-scrollbar{
+        width: 0;
+       background: transparent;
+    }
+    //border-radius: 8px;
     background-color: transparent;
 `;
 
 const MainSlide = styled.div`
+    display: grid;
+    grid-template-rows: 1fr 1.2fr;
     position: relative;
-    width: 250px;
+    width: 350px;
     height: 200px;
+    margin-right: 10px;
     box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
-    margin-left: 10px;
+    //margin-left: 10px;
 `;
 
 const SlideImg = styled.img`
@@ -72,6 +80,10 @@ const SliderInfo = styled.p`
     font-size: 10px;
 `;
 
+// function slideShow(){
+
+// }
+
 export const Slider: FC = () => {
     return (
         <MainSlider>
@@ -105,6 +117,19 @@ export const Slider: FC = () => {
                 <SlideImg src='./media/corpo.jpg'/>
                 <SlideIco src='./media/icons/entities2.svg'/>
                 <SlideH1>Corporate</SlideH1>
+                <SliderNav>
+                    <SlideIcoS src='./media/icons/sign.png'/>
+                    <p>Contact</p>
+                    &bull;
+                    <SlideIcoS src='./media/icons/people.svg'/>
+                    <p>150 users</p>
+                </SliderNav>
+                <SliderInfo>Last update 2 days ago</SliderInfo>
+            </MainSlide>
+            <MainSlide>
+                <SlideImg src='./media/libs.jpg'/>
+                <SlideIco src='./media/icons/publications3.png'/>
+                <SlideH1>Client contract</SlideH1>
                 <SliderNav>
                     <SlideIcoS src='./media/icons/sign.png'/>
                     <p>Contact</p>

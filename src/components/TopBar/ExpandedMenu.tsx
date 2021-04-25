@@ -1,5 +1,7 @@
-import { FC } from 'React';
+import { FC, useState, ChangeEvent } from 'react';
+
 import styled from 'styled-components';
+//import { Link } from 'react-router-dom';
 
 import { Colors } from '../../styledHelpers/Colors';
 
@@ -20,22 +22,24 @@ const WrapperNav = styled.div`
 
 
 export const ExpandedMenu: FC = () => {
+
+    const [inputText, setInputText] = useState<string>('');
+
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const text = e.target.value;
+        setInputText(text);
+    }
+
     return (
         <WrapperNav>
-            <ul>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-            </ul>
+            <input type="text" value={inputText} onChange={inputHandler}/>
+            {'Home'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                <div>Home</div>
+            }
+            {'People'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                <div>People</div>
+            }
+
 
         </WrapperNav>
     );
