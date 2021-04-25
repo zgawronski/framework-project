@@ -5,10 +5,11 @@ import { TopBar } from '../TopBar/TopBar';
 import { LeftMenu } from '../LeftMenu/LeftMenu';
 
 //import { Colors } from '../../styledHelpers/Colors';
+
 import { MainContainer } from './MainContainer';
+import { WorkSpace } from '../WorkSpace/WorkSpace'
 
-
-const Wrapper = styled.section`
+const WrapperM = styled.section`
 
 `;
 
@@ -19,6 +20,10 @@ const Content = styled.div`
     margin-right: auto;
 `;
 
+const RightSide = styled.div`
+
+`;
+
 // const ContentDiv = styled.div`
 
 //     padding: 10px;
@@ -26,13 +31,17 @@ const Content = styled.div`
 
 const MainPage: FC = () => {
     return (
-        <Wrapper>
+        <WrapperM>
             <TopBar />
             <Content>
                 <LeftMenu />
-                <MainContainer/>
+                <RightSide>
+                    <MainContainer/>
+                    <WorkSpace/>
+                </RightSide>
             </Content>
-        </Wrapper>
+
+        </WrapperM>
     );
 };
 

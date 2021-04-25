@@ -4,12 +4,14 @@ import useDropdown from 'react-dropdown-hook';
 
 import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
+import { fontSize } from '../../styledHelpers/FontSizes';
+
 import { ExpandedMenu } from './ExpandedMenu';
 //import { relative } from 'node:path';
 
 
 const Wrapper2 = styled(Wrapper)`
-    max-width: 1200px;
+    max-width: 1250px;
     margin: auto;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -81,7 +83,7 @@ const MenuWrapper = styled.div`
 const LeftSide = styled.div`
     span{
         margin: 0 5px 0px 5px;
-        font-size: 20px;
+        font-size: ${fontSize[20]};
         text-align: center;
     }
 

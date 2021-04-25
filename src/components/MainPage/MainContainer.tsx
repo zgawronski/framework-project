@@ -2,10 +2,12 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
+import { fontSize } from '../../styledHelpers/FontSizes';
 
 const Wrapper4 = styled.section`
     display: flex;
     width: 100%;
+    max-width: 970px;
     min-height: 240px;
     max-height: 300px;
     margin: 10px;
@@ -49,7 +51,7 @@ const BlockImg = styled.img`
 
 const MainP = styled.p`
     position: absolute;
-    top: 200px;
+    top: 180px;
     left: 20px;
     color: ${Colors.white};
     background-color: ${ Colors.black };
@@ -67,14 +69,14 @@ const BlockImgF = styled.a`
 const BlockTxt = styled.div`
     display: flex;
     flex-wrap: wrap;
-    font-size: 16px;
+    font-size: ${fontSize[16]};
     padding: 5px;
 `;
 
 const MainF = styled.a`
     color: ${Colors.text};
     margin-left: 5px;
-    font-size: 14px;
+    font-size: ${fontSize[14]};
     text-decoration: none;
 `;
 
