@@ -31,8 +31,8 @@ const SlideIco = styled.img`
     position: absolute;
     top: 70px;
     left: 10px;
-    max-width: 50px;
-    max-height: 50px;
+    width: 50px;
+    height: 50px;
     background-color: ${ Colors.white };
     padding: 5px;
     z-index: 10;
@@ -103,7 +103,7 @@ export const Slider: FC = () => {
             </MainSlide>
             <MainSlide>
                 <SlideImg src='./media/corpo.jpg'/>
-                <SlideIco src='./media/icons/sign.png'/>
+                <SlideIco src='./media/icons/entities2.svg'/>
                 <SlideH1>Corporate</SlideH1>
                 <SliderNav>
                     <SlideIcoS src='./media/icons/sign.png'/>
@@ -116,7 +116,7 @@ export const Slider: FC = () => {
             </MainSlide>
             <MainSlide>
                 <SlideImg src='./media/libs.jpg'/>
-                <SlideIco src='./media/icons/sign.png'/>
+                <SlideIco src='./media/icons/publications3.png'/>
                 <SlideH1>Client contract</SlideH1>
                 <SliderNav>
                     <SlideIcoS src='./media/icons/sign.png'/>
