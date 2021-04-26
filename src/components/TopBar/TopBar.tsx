@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import useDropdown from 'react-dropdown-hook';
 
 import { Wrapper } from '../../styledHelpers/Components';
+import { CustomImg } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 
@@ -43,9 +44,7 @@ const InputWrapper = styled.div`
 
 `;
 
-const CustomImg = styled.img`
-    margin: 0 5px 0 5px;
-`;
+
 const CustomSpan = styled.span`
     position: absolute;
 `;

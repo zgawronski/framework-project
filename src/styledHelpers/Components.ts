@@ -19,3 +19,7 @@ export const Wrapper = styled.div`
     align-items: space-between;
     ${boxShadow()};
 `;
+
+export const CustomImg = styled.img`
+margin: 0 5px 0 5px;
+`;
