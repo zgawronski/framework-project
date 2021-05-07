@@ -62,8 +62,7 @@ const CustomText = styled.div`
     width: 100%;
     margin-bottom: 5px;
     Link {
-        text-decoration: none;
-        img {
+        img{
             padding: 5px 8px 5px 8px;
             width: 7%;
             height: 12px;
@@ -81,6 +80,7 @@ const CustomText = styled.div`
 //     border: 1px solid;
 //     border-radius: 5px;
 // `;
+
 const CustomImg = styled.img`
     width: 10%;
     height: 10%;

@@ -35,27 +35,27 @@ const RightSide = styled.div`
 const MainPage: FC = () => {
     return (
         <Router>
-        <WrapperM>
-            <TopBar />
-            <Content>
-                <LeftMenu />
-                <Switch>
-                    <Route path="/network">
-                        <p>napis</p>
+            <WrapperM>
+                <TopBar />
+                <Content>
+                    <LeftMenu />
+                    <Switch>
+                        <Route path="/network">
+                            <p>napis</p>
+                        </Route>
+                        <Route path="/publications">
+                            <p>napis2</p>
+                        </Route>
+                        <Route path="/">
+                    <RightSide>
+                        <MainContainer/>
+                        <WorkSpace/>
+                    </RightSide>
                     </Route>
-                    <Route path="/publications">
-                        <p>napis2</p>
-                    </Route>
-                    <Route path="/">
-                <RightSide>
-                    <MainContainer/>
-                    <WorkSpace/>
-                </RightSide>
-                </Route>
-                </Switch>
-            </Content>
+                    </Switch>
+                </Content>
 
-        </WrapperM>
+            </WrapperM>
         </Router>
     );
 };
