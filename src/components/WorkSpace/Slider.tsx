@@ -1,28 +1,30 @@
-import { FC } from 'React';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 
 const MainSlider = styled.div`
-    overflow-x: auto;
+    overflow-x: scroll;
     display: flex;
     width: 980px;
+    height: 260px;
     margin: 10px;
+    box-sizing: border-box;
     scroll-behavior: smooth;
     ::-webkit-scrollbar{
         width: 0;
        background: transparent;
     }
-    //border-radius: 8px;
+    scrollbar-width: none;
     background-color: transparent;
 `;
 
 const MainSlide = styled.div`
-    display: grid;
-    grid-template-rows: 1fr 1.2fr;
+    //display: flex;
+    //grid-template-rows: 1fr 1.2fr;
     position: relative;
-    width: 350px;
+    width: 250px;
     height: 200px;
     margin-right: 10px;
     box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
@@ -30,7 +32,7 @@ const MainSlide = styled.div`
 `;
 
 const SlideImg = styled.img`
-    width: 100%;
+    width: 250px;
     height: 100px;
     object-fit: cover;
 
@@ -63,7 +65,7 @@ const SlideIcoS = styled.img`
 const SliderNav = styled.div`
     display: flex;
     position: relative;
-    top: 20px;
+    top: 40px;
     left: 15px;
     p{
         margin-left: 5px;
@@ -75,18 +77,17 @@ const SliderNav = styled.div`
 const SliderInfo = styled.p`
     position: relative;
     color: ${ Colors.grey };
-    top: 35px;
+    top: 45px;
     left: 15px;
     font-size: 10px;
 `;
 
-// function slideShow(){
-
-// }
 
 export const Slider: FC = () => {
+
     return (
-        <MainSlider>
+
+        <MainSlider id='slider'>
             <MainSlide>
                 <SlideImg src='./media/contract.jpg'/>
                 <SlideIco src='./media/icons/sign.png'/>
@@ -150,8 +151,10 @@ export const Slider: FC = () => {
                     <SlideIcoS src='./media/icons/people.svg'/>
                     <p>150 users</p>
                 </SliderNav>
+
                 <SliderInfo>Last update 2 days ago</SliderInfo>
             </MainSlide>
+
         </MainSlider>
     );
 }

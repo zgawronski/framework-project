@@ -57,7 +57,6 @@ const MainP = styled.p`
     top: 180px;
     left: 20px;
     color: ${Colors.white};
-    background-color: ${ Colors.black };
 `;
 
 const BlockImgF = styled.a`
@@ -66,7 +65,6 @@ const BlockImgF = styled.a`
     left: 20px;
     color: ${Colors.white};
     text-decoration: none;
-    background-color: ${ Colors.black };
 `;
 
 const BlockTxt = styled.div`
