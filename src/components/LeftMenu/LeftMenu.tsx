@@ -63,25 +63,15 @@ const CustomText = styled.div`
     display: flex;
     width: 100%;
     margin-bottom: 5px;
-    Link {
-        img {
-            padding: 5px 8px 5px 8px;
-            width: 7%;
-            height: 12px;
-            border: 1px solid;
-            border-radius: 5px;
-        }
-    }
-
 `;
 
-// const ButtonImg = styled.img`
-//     padding: 5px 8px 5px 8px;
-//     width: 7%;
-//     height: 12px;
-//     border: 1px solid;
-//     border-radius: 5px;
-// `;
+const ButtonImg = styled.img`
+    padding: 5px 8px 5px 8px;
+    width: 15px;
+    height: 12px;
+    border: 1px solid;
+    border-radius: 5px;
+`;
 
 const CustomImg = styled.img`
     width: 10%;
@@ -155,14 +145,14 @@ export const LeftMenu: FC = () => {
                             <CustomImg src="./media/icons/network.png" alt="" />
                             <CustomP>Your network</CustomP>
                             <Link to = "/network">
-                                <img src="./media/icons/user-plus.png" alt="" />
+                                <ButtonImg src="./media/icons/user-plus.png" alt="" />
                             </Link>
                         </CustomText>
                         <CustomText>
                             <CustomImg src="./media/icons/publications4.png" alt="" />
                             <CustomP>Your Publications</CustomP>
                             <Link to ="/publications">
-                                <img src="./media/icons/plus.png" alt="" />
+                                <ButtonImg src="./media/icons/plus.png" alt="" />
                             </Link>
                         </CustomText>
                     </BoxText>

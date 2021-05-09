@@ -1,4 +1,4 @@
-import React, { FC, useState, ChangeEvent, useEffect } from 'react';
+import { FC, useState, ChangeEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
@@ -41,17 +41,16 @@ const WrapperNav = styled.div`
         display:flex;
 
     }
-
-    .logoutSpan{
-        text-decoration: none;
-    }
-
-    .logoutImg{
-
-    }
-
-
 `;
+
+const LogoutDiv = styled.div`
+    display: inline-block;
+`;
+const LogoutSpan = styled.span`
+    text-decoration: none;
+    padding: 5px;
+`;
+const LogoutImg = styled.img``;
 
 
 
@@ -179,9 +178,9 @@ export const ExpandedMenu: FC = () => {
 
             <hr></hr>
 
-            <div className ="logoutDiv">
-                <Link to="/logout"><img src="./media/icons/logout.png" alt="" className="logoutImg"></img><span className="logoutSpan">Logout</span></Link>
-            </div>
+            <LogoutDiv>
+                <Link to="/logout"><LogoutImg src="./media/icons/logout.png" alt="" className="logoutImg"></LogoutImg><LogoutSpan className="logoutSpan">Logout</LogoutSpan></Link>
+            </LogoutDiv>
 
         </WrapperNav>
     );
