@@ -39,17 +39,19 @@ const WrapperNav = styled.div`
     }
     div {
         display:flex;
-
+        position: relative;
     }
 `;
 
 const LogoutDiv = styled.div`
-    display: inline-block;
 `;
+
 const LogoutSpan = styled.span`
     text-decoration: none;
     padding: 5px;
+    position: absolute;
 `;
+
 const LogoutImg = styled.img``;
 
 
