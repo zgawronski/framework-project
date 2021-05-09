@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 //import { Wrapper } from '../../styledHelpers/Components';
@@ -26,6 +26,8 @@ const PhotoBox = styled.div`
 `;
 
 const Photo = styled.img`
+    width: 90px;
+    height: 90px;
     position: relative;
     display: flex;
     margin: auto;
@@ -62,7 +64,7 @@ const CustomText = styled.div`
     width: 100%;
     margin-bottom: 5px;
     Link {
-        img{
+        img {
             padding: 5px 8px 5px 8px;
             width: 7%;
             height: 12px;
@@ -105,12 +107,48 @@ const LeftColumn = styled.section`
     margin-bottom: 10px;
 `;
 export const LeftMenu: FC = () => {
+
+    const userID: number = 10;
+
+    const [person, setPerson] = useState<any>(null);
+    const [company, setCompany] = useState<any>(null);
+    const [imageUrl, setImageUrl] = useState<any>(null);
+
+    useEffect(() => {
+        async function getName() {
+            try{
+                const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
+                const data = await response.json();
+                setPerson(data.name);
+            } catch(e){}
+        }
+        async function getCompany() {
+            try{
+                const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
+                const data = await response.json();
+                setCompany(data.company.name);
+            } catch(e){}
+        }
+
+        async function getUrl(){
+            try{
+                const response = await fetch(`https://jsonplaceholder.typicode.com/photos/${userID}`)
+                const data = await response.json();
+                setImageUrl(data.url);
+            } catch(e){}
+        }
+
+           getName();
+           getCompany();
+           getUrl();
+    });
+
     return (
         <WrapperLM>
                 <PhotoBox>
-                    <Photo src="./media/face.jpeg" alt=""/>
-                    <Sign>Zbigniew Gawroński</Sign>
-                    <JobDescription>Job title - Company</JobDescription>
+                    <Photo src={imageUrl}></Photo>
+                    <Sign>{JSON.stringify(person).slice(1,-1)}</Sign>
+                    <JobDescription>{JSON.stringify(company).slice(1,-1)}</JobDescription>
                     <CustomHr></CustomHr>
                     <BoxText>
                         <CustomText>

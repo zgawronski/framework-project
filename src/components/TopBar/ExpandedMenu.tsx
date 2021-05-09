@@ -1,4 +1,5 @@
-import { FC, useState, ChangeEvent } from 'react';
+import React, { FC, useState, ChangeEvent, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 //import { CustomImg } from '../../styledHelpers/Components';
@@ -41,6 +42,14 @@ const WrapperNav = styled.div`
 
     }
 
+    .logoutSpan{
+        text-decoration: none;
+    }
+
+    .logoutImg{
+
+    }
+
 
 `;
 
@@ -55,91 +64,125 @@ export const ExpandedMenu: FC = () => {
         setInputText(text);
     }
 
+    const userID: number = 10;
+
+    const [person, setPerson] = useState<any>(null);
+    const [imageUrl, setImageUrl] = useState<any>(null);
+
+    useEffect(() => {
+        async function getName() {
+            try{
+                const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
+                const data = await response.json();
+                setPerson(data.name);
+            } catch(e){}
+        }
+
+        async function getUrl(){
+            try{
+                const response = await fetch(`https://jsonplaceholder.typicode.com/photos/${userID}`)
+                const data = await response.json();
+                setImageUrl(data.url);
+            } catch(e){}
+        }
+
+           getName();
+           getUrl();
+    });
+
     return (
         <WrapperNav>
-            <input type="text" value={inputText} onChange={inputHandler} placeholder="Filter..."/>
-            <p>Platform</p>
-            {'Home'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+            <ul>
+                <input type="text" value={inputText} onChange={inputHandler} placeholder="Filter..."/>
+                <p>Platform</p>
+                {'Home'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                    <div>
+                        <img src="./media/icons/house2.png" alt=""/>
+                        <span>Home</span>
+                    </div>
+                }
+                {'Publications'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                    <div>
+                        <img src="./media/icons/publications3.png" alt=""/>
+                        <span>Publications</span>
+                    </div>
+                }
+                {'People'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                    <div>
+                        <img src="./media/icons/people.svg" alt=""/>
+                        People
+                    </div>
+                }
+                {'Entities'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                    <div>
+                        <img src="./media/icons/entities2.svg" alt=""/>
+                        Entities
+                    </div>
+                }
+                {'Administration'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                    <div>
+                        <img src="./media/icons/administration.svg" alt=""/>
+                        Administration
+                    </div>
+                }
+                <p>Workspace</p>
+                {'Cilent contract'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                    <div>
+                        <img src="./media/icons/sign.png" alt=""/>
+                        Cilent contract
+                    </div>
+                }
+                {'Supplier contract'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                    <div>
+                        <img src="./media/icons/sign.png" alt=""/>
+                        Supplier contract
+                    </div>
+                }
+                {'Corporate'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                    <div>
+                        <img src="./media/icons/entities.svg" alt=""/>
+                        Corporate
+                    </div>
+                }
+                {'Group Norms'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                    <div>
+                        <img src="./media/icons/publications4.png" alt=""/>
+                        Group Norms
+                    </div>
+                }
+                {'Real estate contracts'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                    <div>
+                        <img src="./media/icons/sign.png" alt=""/>
+                        Real estate contracts
+                    </div>
+                }
+                <hr></hr>
+
                 <div>
-                    <img src="./media/icons/house2.png" alt=""/>
-                    <span>Home</span>
-                </div>
-            }
-            {'Publications'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                <div>
-                    <img src="./media/icons/publications3.png" alt=""/>
-                    <span>Publications</span>
-                </div>
-            }
-            {'People'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                <div>
-                    <img src="./media/icons/people.svg" alt=""/>
-                    People
-                </div>
-            }
-            {'Entities'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                <div>
-                    <img src="./media/icons/entities2.svg" alt=""/>
-                    Entities
-                </div>
-            }
-            {'Administration'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                <div>
-                    <img src="./media/icons/administration.svg" alt=""/>
-                    Administration
-                </div>
-            }
-            <p>Workspace</p>
-            {'Cilent contract'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                <div>
-                    <img src="./media/icons/sign.png" alt=""/>
-                    Cilent contract
-                </div>
-            }
-            {'Supplier contract'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                <div>
-                    <img src="./media/icons/sign.png" alt=""/>
-                    Supplier contract
-                </div>
-            }
-            {'Corporate'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                <div>
-                    <img src="./media/icons/entities.svg" alt=""/>
-                    Corporate
-                </div>
-            }
-            {'Group Norms'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                <div>
-                    <img src="./media/icons/publications4.png" alt=""/>
-                    Group Norms
-                </div>
-            }
-            {'Real estate contracts'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                <div>
-                    <img src="./media/icons/sign.png" alt=""/>
-                    Real estate contracts
-                </div>
-            }
-            <hr></hr>
-            {'Profile'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                <div>
-                    <img src="./media/face.jpeg" alt=""/>
-                    <span>Zbigniew Gawroński<br /> See profile </span>
+                    <img src={imageUrl} alt=""></img>
+                    <span>{JSON.stringify(person).slice(1,-1)}<br /> See profile </span>
 
                 </div>
-            }
-            {'Privacy'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+
                 <div>
                     <img src="./media/icons/privacy.svg" alt=""/>
                     Privacy
                 </div>
-            }
-            {'Settings'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+
+
                 <div>
                     <img src="./media/icons/settings.svg" alt=""/>
                     Settings
                 </div>
-            }
+
+            </ul>
+
+            <hr></hr>
+
+            <div className ="logoutDiv">
+                <Link to="/logout"><img src="./media/icons/logout.png" alt="" className="logoutImg"></img><span className="logoutSpan">Logout</span></Link>
+            </div>
+
         </WrapperNav>
     );
 };
