@@ -116,7 +116,8 @@ export const MainContainer: FC = () => {
 
     const [postImage, setPostImage ] = useState<any>(1);
     const [title, setTitle] = useState<any>([]);
-    const [image, setImage ] = useState<any>([]);
+    const [image, setImage] = useState<any>([]);
+    const [body, setBody] = useState<any>([]);
 
     const [userId, setUserID] = useState<any>(10);
     const [userName, setUserName] = useState<any>([]);
@@ -131,6 +132,12 @@ export const MainContainer: FC = () => {
                 const titleFirstLetterUpper = title.charAt(0).toUpperCase() + title.slice(1);
                 setUserID(data.userId);
 
+                const responseBody = await fetch(`https://jsonplaceholder.typicode.com/posts/${postID}`);
+                const dataBody = await responseBody.json();
+                const body = JSON.stringify(data.body).slice(1,-103);
+                const bodyFirstLetterUpper = body.charAt(0).toUpperCase() + body.slice(1);
+                setUserID(dataBody.userId);
+
                 const responseUrl = await fetch(`https://jsonplaceholder.typicode.com/photos/${postID}`);
                 const dataUrl = await responseUrl.json();
                 const url = JSON.stringify(dataUrl.url).slice(1,-1);
@@ -144,6 +151,7 @@ export const MainContainer: FC = () => {
 
                 setTitle((arr: any) => ([...arr, titleFirstLetterUpper]));
                 setImage((arr: any) => ([...arr, url]));
+                setBody((arr: any) => ([...arr, bodyFirstLetterUpper]));
 
                 if(dataUser.name != null){
                     const userName = JSON.stringify(dataUser.name).slice(1,-1);
@@ -180,11 +188,11 @@ export const MainContainer: FC = () => {
         <Wrapper4>
             <BlockImgPlace>
                 <MainImg src={postImage} alt="" />
-                <MainP>Lorem ipsum dolor sit amet consectetur adipisicing elit... and one more line for the demo</MainP>
+                <MainP>{body[1]}</MainP>
                 <BlockImgF>
                     <DataP>7 jan 2020</DataP>
                     <BlockUserImg src={userImage} alt=""/>
-                    <BlockUser>{userName[0]}</BlockUser>
+                    <BlockUser>{userName[2]}</BlockUser>
                 </BlockImgF>
             </BlockImgPlace>
             <MainText>
@@ -198,7 +206,7 @@ export const MainContainer: FC = () => {
                         <BlockF>
                             <DataP>7 jan 2020</DataP>
                             <BlockUserImg src={userImage} alt=""/>
-                            <BlockUser>{userName[0]}</BlockUser>
+                            <BlockUser>{userName[2]}</BlockUser>
                         </BlockF>
                     </div>
                 </MainBlocks>
@@ -211,7 +219,7 @@ export const MainContainer: FC = () => {
                         <BlockF>
                             <DataP>7 jan 2020</DataP>
                             <BlockUserImg src={userImage} alt=""/>
-                            <BlockUser>{userName[1]}</BlockUser>
+                            <BlockUser>{userName[2]}</BlockUser>
                         </BlockF>
                     </div>
                 </MainBlocks>
