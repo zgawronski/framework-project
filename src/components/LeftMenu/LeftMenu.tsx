@@ -69,7 +69,7 @@ const ButtonImg = styled.img`
     padding: 3px 5px 3px 5px;
     width: 15px;
     height: 12px;
-    border: 1px solid;
+    border: 1px solid black;
     border-radius: 5px;
 `;
 
