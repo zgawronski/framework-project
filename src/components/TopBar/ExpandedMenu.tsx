@@ -48,11 +48,12 @@ const LogoutDiv = styled.div`
 
 const LogoutSpan = styled.span`
     text-decoration: none;
-    padding: 5px;
     position: absolute;
 `;
 
-const LogoutImg = styled.img``;
+const LogoutImg = styled.img`
+
+`;
 
 
 
@@ -94,6 +95,7 @@ export const ExpandedMenu: FC = () => {
     return (
         <WrapperNav>
             <ul>
+                <li>
                 <input type="text" value={inputText} onChange={inputHandler} placeholder="Filter..."/>
                 <p>Platform</p>
                 {'Home'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
@@ -102,61 +104,78 @@ export const ExpandedMenu: FC = () => {
                         <span>Home</span>
                     </div>
                 }
+                </li>
+                <li>
                 {'Publications'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
                     <div>
                         <img src="./media/icons/publications3.png" alt=""/>
                         <span>Publications</span>
                     </div>
                 }
+                </li>
+                <li>
                 {'People'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
                     <div>
                         <img src="./media/icons/people.svg" alt=""/>
                         People
                     </div>
                 }
+                </li>
+                <li>
                 {'Entities'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
                     <div>
                         <img src="./media/icons/entities2.svg" alt=""/>
                         Entities
                     </div>
                 }
+                </li>
+                <li>
                 {'Administration'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
                     <div>
                         <img src="./media/icons/administration.svg" alt=""/>
                         Administration
                     </div>
                 }
+                </li>
                 <p>Workspace</p>
+                <li>
                 {'Cilent contract'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
                     <div>
                         <img src="./media/icons/sign.png" alt=""/>
                         Cilent contract
                     </div>
                 }
+                </li>
+                <li>
                 {'Supplier contract'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
                     <div>
                         <img src="./media/icons/sign.png" alt=""/>
                         Supplier contract
                     </div>
                 }
+                </li>
                 {'Corporate'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
                     <div>
                         <img src="./media/icons/entities.svg" alt=""/>
                         Corporate
                     </div>
                 }
+                <li>
                 {'Group Norms'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
                     <div>
                         <img src="./media/icons/publications4.png" alt=""/>
                         Group Norms
                     </div>
                 }
+                </li>
+                <li>
                 {'Real estate contracts'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
                     <div>
                         <img src="./media/icons/sign.png" alt=""/>
                         Real estate contracts
                     </div>
                 }
+                </li>
                 <hr></hr>
 
                 <div>
