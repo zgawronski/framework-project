@@ -41,17 +41,51 @@ const MainPage: FC = () => {
                     <LeftMenu />
                     <Switch>
                         <Route path="/network">
-                            <p>napis</p>
+                            <p>network</p>
                         </Route>
                         <Route path="/publications">
-                            <p>napis2</p>
+                            <p>publications</p>
                         </Route>
+                        <Route path="/people">
+                            <p>people</p>
+                        </Route>
+                        <Route path="/entities">
+                            <p>entities</p>
+                        </Route>
+                        <Route path="/administration">
+                            <p>administration</p>
+                        </Route>
+                        <Route path="/client_contract">
+                            <p>client contract</p>
+                        </Route>
+                        <Route path="/suplier_contract">
+                            <p>suplier contract</p>
+                        </Route>
+                        <Route path="/corporate">
+                            <p>corporate</p>
+                        </Route>
+                        <Route path="/group_norms">
+                            <p>group norms</p>
+                        </Route>
+                        <Route path="/real_estate_contracts">
+                            <p>real estate contracts</p>
+                        </Route>
+                        <Route path="/privacy">
+                            <p>privacy</p>
+                        </Route>
+                        <Route path="/settings">
+                            <p>settings</p>
+                        </Route>
+                        <Route path="/logout">
+                            <p>logout</p>
+                        </Route>
+
                         <Route path="/">
-                    <RightSide>
-                        <MainContainer/>
-                        <WorkSpace/>
-                    </RightSide>
-                    </Route>
+                            <RightSide>
+                            <MainContainer/>
+                            <WorkSpace/>
+                            </RightSide>
+                        </Route>
                     </Switch>
                 </Content>
 
