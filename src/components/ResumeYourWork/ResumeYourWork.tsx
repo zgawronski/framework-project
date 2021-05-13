@@ -30,7 +30,7 @@ const MainBlocks = styled.div`
     margin-bottom: 10px;
     background-color: ${Colors.white};
     border-radius: 5px;
-    box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
+    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
     h3{
         color: ${Colors.blue};
         font-size: ${fontSize[18]};
