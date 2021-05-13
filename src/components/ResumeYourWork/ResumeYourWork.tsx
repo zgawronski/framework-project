@@ -99,7 +99,6 @@ const FDiv = styled.div`
         margin-right: 5px;
         margin-left: 5px;
     }
-    }
     div{
         display:flex;
     }
@@ -125,9 +124,6 @@ export const ResumeYourWork: FC = () => {
     const indexOfLastPost: number = currentPage * postsPerPage;
     const indexOfFirstPost: number = indexOfLastPost - postsPerPage;
     const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-    //const lastPage: number = posts.length / postsPerPage;
-
-    //const paginate = (pageNumber:number) => pageNumber>=1 && pageNumber <= lastPage ? setCurrentPage(pageNumber) : console.log("error");
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>)=> {
         const text:string = e.target.value;
@@ -190,8 +186,8 @@ export const ResumeYourWork: FC = () => {
 
                                 <p>{us.body.charAt(0).toUpperCase()+us.body.slice(1)}</p>
 
-                                <div className="flowDiv">
-                                    <div className="Subside">
+                                <div>
+                                    <div>
                                         <img src="./media/icons/ecosystem.svg" alt=""></img>
                                         <p>Subsid. corp.</p>
                                     </div>
@@ -199,15 +195,12 @@ export const ResumeYourWork: FC = () => {
                                         <img src="./media/icons/entities2.svg" alt=""></img>
                                         <p>Corporate</p>
                                     </div>
-                                    <div className="Updated">
+                                    <div>
                                         <p>{us.email}</p>
                                     </div>
                                 </div>
                             </MainBlocks>
                         )})}
-            {/* {
-               inputSearchActive ? <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} pageLast={lastPage}></Pagination> : null
-            } */}
 
             </WorkContainer>
         </WrapperR>
