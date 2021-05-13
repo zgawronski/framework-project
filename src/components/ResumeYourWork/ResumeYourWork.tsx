@@ -151,7 +151,7 @@ export const ResumeYourWork: FC = () => {
                     <img src="./media/icons/search.svg" alt=""/>
                 </SearchDiv>
                 <FollowDiv ref={wrapperRef}>
-                    <p>Followed</p>
+                    <p onClick={menuHandler}>Followed</p>
                     <img onClick={menuHandler} src="./media/icons/arrow-down.svg" alt=""/>
                     {dropdownOpen &&
                         <ExpandedFollowedMenu />

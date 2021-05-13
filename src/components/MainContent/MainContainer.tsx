@@ -235,7 +235,6 @@ export const MainContainer: FC = () => {
                     </div>
                 </MainBlocks>
 
-
                 <MainF to="/publications">See more publications</MainF>
             </MainText>
         </Wrapper4>
