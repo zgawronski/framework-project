@@ -113,11 +113,10 @@ export const ResumeYourWork: FC = () => {
     };
     const apiURL = `https://jsonplaceholder.typicode.com/comments/`;
     const [posts, setPosts] = useState<any>([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(10);
+
 
     const [inputText, setInputText] = useState<any>("");
-    const [inputSearchActive, setInputSearchActive] = useState<number>(1);
+
 
     useEffect(()=> {
 
@@ -127,19 +126,12 @@ export const ResumeYourWork: FC = () => {
 
     }, [apiURL]);
 
-    const indexOfLastPost: number = currentPage * postsPerPage;
-    const indexOfFirstPost: number = indexOfLastPost - postsPerPage;
-    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPosts = posts.slice();
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>)=> {
         const text:string = e.target.value;
         setInputText(text);
 
-        if(text !== ""){
-            setInputSearchActive(0);
-        }else{
-            setInputSearchActive(1);
-        }
     }
 
     return (
