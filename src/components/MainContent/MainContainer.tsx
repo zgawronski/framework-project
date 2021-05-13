@@ -130,13 +130,11 @@ export const MainContainer: FC = () => {
                 const data = await response.json();
                 const title = JSON.stringify(data.title).slice(1,-1);
                 const titleFirstLetterUpper = title.charAt(0).toUpperCase() + title.slice(1);
-                setUserID(data.userId);
 
-                const responseBody = await fetch(`https://jsonplaceholder.typicode.com/posts/${postID}`);
-                const dataBody = await responseBody.json();
                 const body = JSON.stringify(data.body).slice(1,-103);
                 const bodyFirstLetterUpper = body.charAt(0).toUpperCase() + body.slice(1);
-                setUserID(dataBody.userId);
+                setUserID(data.userId);
+
 
                 const responseUrl = await fetch(`https://jsonplaceholder.typicode.com/photos/${postID}`);
                 const dataUrl = await responseUrl.json();
@@ -182,13 +180,13 @@ export const MainContainer: FC = () => {
             getInfo(6);
         } catch(e){}
 
-    });
+    }, [userId]);
 
     return (
         <Wrapper4>
             <BlockImgPlace>
                 <MainImg src={postImage} alt="" />
-                <MainP>{body[1]}</MainP>
+                <MainP>{body[3]}</MainP>
                 <BlockImgF>
                     <DataP>7 jan 2020</DataP>
                     <BlockUserImg src={userImage} alt=""/>
