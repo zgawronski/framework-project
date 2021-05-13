@@ -99,6 +99,7 @@ const BlockF = styled.div`
     bottom:0;
     display: inline-flex;
     text-decoration: none;
+    padding-bottom:  5px;
     padding-left: 5px;
     font-size: ${fontSize[12]};
 `;

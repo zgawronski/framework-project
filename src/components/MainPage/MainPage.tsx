@@ -6,7 +6,7 @@ import { LeftMenu } from '../LeftMenu/LeftMenu';
 
 //import { Colors } from '../../styledHelpers/Colors';
 
-import { MainContainer } from '../MainContent/MainContainer';
+import { MainContainer } from '../LatestPublications/LatestPublications';
 import { WorkSpace } from '../WorkSpace/WorkSpace'
 import { Route } from 'react-router';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
