@@ -1,9 +1,9 @@
-import { FC, useState, ChangeEvent, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { FC,} from 'react';
+// import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 //import { CustomImg } from '../../styledHelpers/Components';
-//import { Link } from 'react-router-dom';
+
 
 import { Colors } from '../../styledHelpers/Colors';
 
