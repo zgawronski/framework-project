@@ -1,9 +1,10 @@
-import { FC, useEffect, useState } from 'react';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { Wrapper } from '../../styledHelpers/Components';
 import { fontSize } from '../../styledHelpers/FontSizes';
+
 
 const WrapperR = styled(Wrapper)`
     display: block;
@@ -11,12 +12,6 @@ const WrapperR = styled(Wrapper)`
     width: 970px;
     margin: 10px;
     padding: 0;
-
-    h2 {
-        color: ${Colors.blue};
-        font-size: ${fontSize[18]};
-        font-weight: 600;
-    }
 `;
 
 
@@ -28,148 +23,193 @@ const MainTitle = styled.h1`
 `;
 
 const MainBlocks = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    margin-top: 5px;
-    background-color: ${Colors.white};
-    border-radius: 5px;
-    box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
-
-`;
-
-
-
-const BlockTxt = styled.div`
     display: block;
-    font-size: ${fontSize[16]};
-    padding: 5px;
+    width: 950px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: ${Colors.white};
+    border-radius: 10px;
+    box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
+    h3{
+        color: ${Colors.blue};
+        font-size: ${fontSize[18]};
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
 `;
 
 
-const BlockF = styled.div`
+const CustomInput = styled.input`
+    width: 250px;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    &:hover {
+        outline: none;
+    }
+    &:focus {
+        outline: none;
+    }
+`;
+
+const FollowDiv = styled.div`
+    display: flex;
     position: relative;
-    bottom:0;
-    display: inline-flex;
-    text-decoration: none;
-    padding: 5px;
-    font-size: ${fontSize[12]};
+    color: ${Colors.blue};
+    p{
+        margin-right: 5px;
+    };
 `;
 
-const BlockUserImg = styled.img`
-    width: 12px;
-    height: 12px;
-    margin: 0 5px 5px 5px;
-
-    border-radius: 50%;
+const SearchDiv = styled.div`
+    position: relative;
+    display: flex;
+    margin-left: auto;
+    margin-right: 20px;
+    border: 1px solid ${Colors.grey};
+    border-radius: 3px;
 `;
 
-const DataP = styled.p`
-    color: ${Colors.grey};
+const WorkContainer = styled.div``;
+
+const TitleContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    img{
+        max-width: 20px;
+        max-height: 20px;
+        padding: 5px
+    }
 `;
 
-const BlockUser = styled.div``;
-
+const FDiv = styled.div`
+    display:flex;
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-size: ${fontSize[14]};
+    img{
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    p{
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    }
+    div{
+        display:flex;
+    }
+`;
 
 export const ResumeYourWork: FC = () => {
-    const postId: number = 3;
+    const apiURL = `https://jsonplaceholder.typicode.com/comments/`;
+    const [posts, setPosts] = useState<any>([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(10);
 
-    const [title, setTitle] = useState<any>([]);
-    const [body, setBody] = useState<any>([]);
+    const [inputText, setInputText] = useState<any>("");
+    const [inputSearchActive, setInputSearchActive] = useState<number>(1);
 
-    const [userId, setUserID] = useState<any>(10);
-    const [userName, setUserName] = useState<any>([]);
-    const [userImage, setUserImage] = useState<any>([]);
+    useEffect(()=> {
 
-    useEffect(() => {
-        async function getInfo(postID: number) {
-            try{
-                const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postID}`);
-                const data = await response.json();
-                const title = JSON.stringify(data.title).slice(1,-1);
-                const titleFirstLetterUpper = title.charAt(0).toUpperCase() + title.slice(1);
-                const body = JSON.stringify(data.body).slice(1,-1);
-                const bodyFirstLetterUpper = body.charAt(0).toUpperCase() + body.slice(1);
+        fetch(apiURL)
+        .then(res=> res.json())
+        .then(data => setPosts(data))
 
-                setUserID(data.userId);
+    }, [apiURL]);
 
-                const responseUser = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
-                const dataUser = await responseUser.json();
+    const indexOfLastPost: number = currentPage * postsPerPage;
+    const indexOfFirstPost: number = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+    //const lastPage: number = posts.length / postsPerPage;
 
-                const responseUrlIcon = await fetch(`https://jsonplaceholder.typicode.com/photos/${userId}`);
-                const dataUrlIcon = await responseUrlIcon.json();
+    //const paginate = (pageNumber:number) => pageNumber>=1 && pageNumber <= lastPage ? setCurrentPage(pageNumber) : console.log("error");
 
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>)=> {
+        const text:string = e.target.value;
+        setInputText(text);
 
-                setTitle((arr: any) => ([...arr, titleFirstLetterUpper]));
-                setBody((arr: any) => ([...arr, bodyFirstLetterUpper]));
-
-
-                if(dataUser.name != null){
-                    const userName = JSON.stringify(dataUser.name).slice(1,-1);
-                    setUserName((arr: any) => ([...arr, userName]));
-                }
-
-                if(dataUrlIcon.url != null){
-                    const urlIcon = JSON.stringify(dataUrlIcon.url).slice(1,-1);
-                    setUserImage(urlIcon);
-                }
-            }catch(e){}
-
-
+        if(text !== ""){
+            setInputSearchActive(0);
+        }else{
+            setInputSearchActive(1);
         }
+    }
 
-        try{
-            getInfo(postId);
-            getInfo(5);
-            getInfo(6);
-        } catch(e){}
-
-    }, [userId]);
     return (
         <WrapperR>
-            <MainTitle>Resume your work</MainTitle>
-                <MainBlocks>
-                    <div>
-                        <BlockTxt>
-                            <h2>{title[0]}</h2>
-                            <br/>
-                            <p>{body[0]}</p>
-                        </BlockTxt>
-                        <BlockF>
-                            <DataP>7 jan 2020</DataP>
-                            <BlockUserImg src={userImage} alt=""/>
-                            <BlockUser>{userName[2]}</BlockUser>
-                        </BlockF>
-                    </div>
-                </MainBlocks>
-                <MainBlocks>
-                    <div>
-                        <BlockTxt>
-                            <h2>{title[1]}</h2>
-                            <br/>
-                            <p>{body[1]}</p>
-                        </BlockTxt>
-                        <BlockF>
-                            <DataP>7 jan 2020</DataP>
-                            <BlockUserImg src={userImage} alt=""/>
-                            <BlockUser>{userName[2]}</BlockUser>
-                        </BlockF>
-                    </div>
-                </MainBlocks>
-                <MainBlocks>
-                    <div>
-                        <BlockTxt>
-                            <h2>{title[2]}</h2>
-                            <br/>
-                            <p>{body[2]}</p>
-                        </BlockTxt>
-                        <BlockF>
-                            <DataP>7 jan 2020</DataP>
-                            <BlockUserImg src={userImage} alt=""/>
-                            <BlockUser>{userName[2]}</BlockUser>
-                        </BlockF>
-                    </div>
-                </MainBlocks>
+            <TitleContainer>
+                <MainTitle>Resume your work</MainTitle>
+                <SearchDiv>
+                    <CustomInput type="text" placeholder="Filter by title..." value={inputText} onChange={inputHandler}></CustomInput>
+                    <img src="./media/icons/search.svg" alt=""/>
+                </SearchDiv>
+                <FollowDiv>
+                    <p>Followed</p>
+                    <img src="./media/icons/arrow-down.svg" alt=""/>
+                </FollowDiv>
+            </TitleContainer>
+            <WorkContainer>
+            {inputText === "" ? currentPosts.map((us: any) =>{
+                    return(
+                        <MainBlocks key={us.id}>
+                            <h3>{us.name.charAt(0).toUpperCase()+us.name.slice(1)}</h3>
+
+                            <p>{us.body.charAt(0).toUpperCase()+us.body.slice(1)}</p>
+
+                            <FDiv>
+                                <div>
+                                    <img src="./media/icons/ecosystem.svg" alt=""></img>
+                                    <p>Subsid. corp.</p>
+                                    &bull;
+                                </div>
+                                <div>
+                                    <img src="./media/icons/entities2.svg" alt=""></img>
+                                    <p>Corporate</p>
+                                    &bull;
+                                </div>
+                                <div>
+                                    <p>{us.email}</p>
+                                </div>
+                            </FDiv>
+                        </MainBlocks>
+                    )}): posts.filter((us: any) => {
+                        if(us.name.toLowerCase().includes(inputText.toLowerCase())){
+                            return us
+                        }else{
+                            return null;
+                        }
+                    }).map((us: any) =>{
+                        return(
+                            <MainBlocks key={us.id}>
+                                <h3>{us.name.charAt(0).toUpperCase()+us.name.slice(1)}</h3>
+
+                                <p>{us.body.charAt(0).toUpperCase()+us.body.slice(1)}</p>
+
+                                <div className="flowDiv">
+                                    <div className="Subside">
+                                        <img src="./media/icons/ecosystem.svg" alt=""></img>
+                                        <p>Subsid. corp.</p>
+                                    </div>
+                                    <div className="Corp">
+                                        <img src="./media/icons/entities2.svg" alt=""></img>
+                                        <p>Corporate</p>
+                                    </div>
+                                    <div className="Updated">
+                                        <p>{us.email}</p>
+                                    </div>
+                                </div>
+                            </MainBlocks>
+                        )})}
+            {/* {
+               inputSearchActive ? <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} pageLast={lastPage}></Pagination> : null
+            } */}
+
+            </WorkContainer>
         </WrapperR>
 
     );

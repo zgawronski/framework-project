@@ -8,6 +8,7 @@ const MainSlider = styled.div`
     overflow-x: scroll;
     display: flex;
     width: 970px;
+    height: 210px;
     margin-top: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
@@ -21,21 +22,20 @@ const MainSlider = styled.div`
 `;
 
 const MainSlide = styled.div`
-    //display: flex;
-    //grid-template-rows: 1fr 1.2fr;
     position: relative;
+    background-color: ${Colors.white};
     width: 250px;
     height: 200px;
-    margin-right: 10px;
+    margin: 5px 10px 5px 0;
     box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
-    //margin-left: 10px;
+    border-radius: 5px;
 `;
 
 const SlideImg = styled.img`
     width: 250px;
     height: 100px;
     object-fit: cover;
-
+    border-radius: 5px 5px 0 0;
 `;
 const SlideIco = styled.img`
     position: absolute;
@@ -47,7 +47,7 @@ const SlideIco = styled.img`
     padding: 5px;
     z-index: 10;
     border-radius: 3px;
-    box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
+    box-shadow: 2px 4px 2px 0px ${Colors.lightgrey};
 `;
 
 const SlideH1 = styled.h1`
