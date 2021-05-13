@@ -27,7 +27,7 @@ const MainSlide = styled.div`
     width: 250px;
     height: 200px;
     margin: 5px 10px 5px 0;
-    box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
+    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
     border-radius: 5px;
 `;
 

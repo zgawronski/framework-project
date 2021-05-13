@@ -20,8 +20,8 @@ const PhotoBox = styled.div`
     Width: 100%;
     background-color: ${Colors.white};
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
+    border-radius: 5px;
+    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
 
 `;
 

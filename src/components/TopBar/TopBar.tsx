@@ -17,7 +17,7 @@ const Wrapper2 = styled(Wrapper)`
     margin: auto;
     margin-bottom: 10px;
     border-radius: 5px;
-    box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
+    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
 `;
 
 const InnerWrapper = styled.div`
@@ -37,7 +37,8 @@ const RightIcons = styled.div`
 
 const CustomImg2 = styled(CustomImg)`
     background-color: ${Colors.lightblue};
-
+    width: 24px;
+    height: 22px;
     border-radius: 50%;
 `;
 

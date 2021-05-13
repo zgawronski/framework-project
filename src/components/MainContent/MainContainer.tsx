@@ -14,7 +14,7 @@ const Wrapper4 = styled.section`
     margin: 10px;
     background-color: ${Colors.white};
     border-radius: 5px;
-    box-shadow: 4px 8px 16px 0px ${Colors.lightgrey};
+    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
 `;
 const MainImg = styled.img`
     margin-top: -5px;
@@ -36,10 +36,8 @@ const MainTitle = styled.h1`
 
 const MainBlocks = styled.div`
     display: flex;
-    flex-wrap: wrap;
     position: relative;
     margin-top: 5px;
-
 `;
 
 const BlockImgPlace = styled.div`
@@ -75,8 +73,6 @@ const BlockImgF = styled.div`
 `;
 
 const BlockTxt = styled.div`
-    display: flex;
-    flex-wrap: wrap;
     font-size: ${fontSize[16]};
     padding: 5px;
 `;
@@ -93,7 +89,7 @@ const BlockF = styled.div`
     bottom:0;
     display: inline-flex;
     text-decoration: none;
-    padding: 5px;
+    padding-left: 5px;
     font-size: ${fontSize[12]};
 `;
 
@@ -115,7 +111,6 @@ export const MainContainer: FC = () => {
     const postId: number = 3;
 
     const [postImage, setPostImage ] = useState<any>(1);
-    const [title, setTitle] = useState<any>([]);
     const [image, setImage] = useState<any>([]);
     const [body, setBody] = useState<any>([]);
 
@@ -128,9 +123,6 @@ export const MainContainer: FC = () => {
             try{
                 const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postID}`);
                 const data = await response.json();
-                const title = JSON.stringify(data.title).slice(1,-1);
-                const titleFirstLetterUpper = title.charAt(0).toUpperCase() + title.slice(1);
-
                 const body = JSON.stringify(data.body).slice(1,-103);
                 const bodyFirstLetterUpper = body.charAt(0).toUpperCase() + body.slice(1);
                 setUserID(data.userId);
@@ -146,8 +138,6 @@ export const MainContainer: FC = () => {
                 const responseUrlIcon = await fetch(`https://jsonplaceholder.typicode.com/photos/${userId}`);
                 const dataUrlIcon = await responseUrlIcon.json();
 
-
-                setTitle((arr: any) => ([...arr, titleFirstLetterUpper]));
                 setImage((arr: any) => ([...arr, url]));
                 setBody((arr: any) => ([...arr, bodyFirstLetterUpper]));
 
@@ -199,7 +189,7 @@ export const MainContainer: FC = () => {
                     <BlockImg src={image[0]} alt=""/>
                     <div>
                         <BlockTxt>
-                            <p>{title[0]}</p>
+                            <p>{body[0]}</p>
                         </BlockTxt>
                         <BlockF>
                             <DataP>7 jan 2020</DataP>
@@ -212,7 +202,7 @@ export const MainContainer: FC = () => {
                     <BlockImg src={image[1]} alt=""/>
                     <div>
                         <BlockTxt>
-                            <p>{title[1]}</p>
+                            <p>{body[1]}</p>
                         </BlockTxt>
                         <BlockF>
                             <DataP>7 jan 2020</DataP>
@@ -225,7 +215,7 @@ export const MainContainer: FC = () => {
                     <BlockImg src={image[2]} alt=""/>
                     <div>
                         <BlockTxt>
-                            <p>{title[2]}</p>
+                            <p>{body[2]}</p>
                         </BlockTxt>
                         <BlockF>
                             <DataP>7 jan 2020</DataP>
