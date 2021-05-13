@@ -39,7 +39,7 @@ const Photo = styled.img`
 const Sign = styled.span`
     margin: 5px;
     padding: 5px;
-    color: ${Colors.blue};
+    color: ${Colors.darkblue};
 
 `;
 

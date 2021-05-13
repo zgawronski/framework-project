@@ -35,6 +35,12 @@ const RightIcons = styled.div`
     right: 2px;
 `;
 
+const CustomImg2 = styled(CustomImg)`
+    background-color: ${Colors.lightblue};
+
+    border-radius: 50%;
+`;
+
 const InputWrapper = styled.div`
     width: 50%;
     margin: 20px;
@@ -48,6 +54,7 @@ const InputWrapper = styled.div`
 
 const CustomSpan = styled.span`
     position: absolute;
+    padding: 5px;
 `;
 
 const LogoImg = styled.img`
@@ -113,14 +120,14 @@ export const TopBar: FC = () => {
                 </MenuWrapper>
 
                 <InputWrapper>
-                    <CustomInput type="text" placeholder="Search"/>
+                    <CustomInput type="text" placeholder="Search Legalcluster"/>
 
                     <CustomImg src="./media/icons/search.png"/>
                 </InputWrapper>
                 <RightIcons>
                     <CustomImg src="./media/icons/house.png" />
-                    <CustomImg src="./media/icons/comments.png" />
-                    <CustomImg src="./media/icons/bell.png" />
+                    <CustomImg2 src="./media/icons/comments.png" />
+                    <CustomImg2 src="./media/icons/bell.png" />
                 </RightIcons>
             </InnerWrapper>
         </Wrapper2>

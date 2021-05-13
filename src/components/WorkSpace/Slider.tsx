@@ -7,9 +7,9 @@ import { fontSize } from '../../styledHelpers/FontSizes';
 const MainSlider = styled.div`
     overflow-x: scroll;
     display: flex;
-    width: 980px;
-    height: 260px;
-    margin: 10px;
+    width: 970px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     box-sizing: border-box;
     scroll-behavior: smooth;
     ::-webkit-scrollbar{

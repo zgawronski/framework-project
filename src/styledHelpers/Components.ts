@@ -22,4 +22,5 @@ export const Wrapper = styled.div`
 
 export const CustomImg = styled.img`
 margin: 0 5px 0 5px;
+padding: 5px;
 `;

@@ -10,6 +10,7 @@ import { MainContainer } from '../MainContent/MainContainer';
 import { WorkSpace } from '../WorkSpace/WorkSpace'
 import { Route } from 'react-router';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { ResumeYourWork } from '../ResumeYourWork/ResumeYourWork';
 
 
 const WrapperM = styled.section`
@@ -84,9 +85,12 @@ const MainPage: FC = () => {
                             <RightSide>
                             <MainContainer/>
                             <WorkSpace/>
+                        <ResumeYourWork/>
                             </RightSide>
                         </Route>
+
                     </Switch>
+
                 </Content>
 
             </WrapperM>

@@ -10,7 +10,9 @@ import { Slider } from './Slider'
 const WrapperW = styled(Wrapper)`
     position: relative;
     display: block;
-    width: 980px;
+    width: 970px;
+    padding: 0;
+    margin: 10px;
     h2{
         font-size: ${fontSize[22]};
         font-weight: 600;
