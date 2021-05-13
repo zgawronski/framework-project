@@ -151,7 +151,7 @@ export const ResumeYourWork: FC = () => {
                 </FollowDiv>
             </TitleContainer>
             <WorkContainer>
-            {inputText === "" ? currentPosts.map((us: any) =>{
+                {inputText === "" ? currentPosts.map((us: any) =>{
                     return(
                         <MainBlocks key={us.id}>
                             <h3>{us.name.charAt(0).toUpperCase()+us.name.slice(1)}</h3>
@@ -201,10 +201,10 @@ export const ResumeYourWork: FC = () => {
                                     </div>
                                 </div>
                             </MainBlocks>
-                        )})}
-
+                        )
+                    })
+                }
             </WorkContainer>
         </WrapperR>
-
     );
 };
