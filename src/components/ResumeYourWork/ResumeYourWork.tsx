@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import { Wrapper } from '../../styledHelpers/Components';
 import { fontSize } from '../../styledHelpers/FontSizes';
-
+import useDropdown from 'react-dropdown-hook';
+import { ExpandedFollowedMenu } from './ExpandedFollowedMenu';
 
 const WrapperR = styled(Wrapper)`
     display: block;
@@ -105,6 +106,11 @@ const FDiv = styled.div`
 `;
 
 export const ResumeYourWork: FC = () => {
+    const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
+
+    const menuHandler = () => {
+        toggleDropdown();
+    };
     const apiURL = `https://jsonplaceholder.typicode.com/comments/`;
     const [posts, setPosts] = useState<any>([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -144,9 +150,12 @@ export const ResumeYourWork: FC = () => {
                     <CustomInput type="text" placeholder="Filter by title..." value={inputText} onChange={inputHandler}></CustomInput>
                     <img src="./media/icons/search.svg" alt=""/>
                 </SearchDiv>
-                <FollowDiv>
+                <FollowDiv ref={wrapperRef}>
                     <p>Followed</p>
-                    <img src="./media/icons/arrow-down.svg" alt=""/>
+                    <img onClick={menuHandler} src="./media/icons/arrow-down.svg" alt=""/>
+                    {dropdownOpen &&
+                        <ExpandedFollowedMenu />
+                    }
                 </FollowDiv>
             </TitleContainer>
             <WorkContainer>
