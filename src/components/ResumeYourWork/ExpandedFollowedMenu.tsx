@@ -13,39 +13,12 @@ const WrapperNav = styled.div`
     left: -15px;
     width: 80px;
     height: 80px;
-    background-color:${Colors.blue};
-    /* background: ${Colors.white}; */
+    background: ${Colors.white};
     padding: 16px;
     border: 1px solid ${Colors.hrgrey};
     z-index: 100;
     overflow-y: auto;
-    p {
-        position: relative;
-        color: ${ Colors.grey };
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-    img {
-        margin-right: 15px;
-        width: 25px;
-        height: 25px;
-        padding-bottom: 10px;
-    }
-    span {
-        padding-top: 5px;
-        color: ${Colors.black};
-    }
-    hr {
-        width: 220px;
-        margin-left: -16px;
-        margin-right: -16px;
-        border-color: ${Colors.hrgrey};
-    }
-    div {
-        display:flex;
-        position: relative;
-        text-decoration: none;
-    }
+
 
 `;
 
@@ -59,19 +32,19 @@ export const ExpandedFollowedMenu: FC = () => {
         <WrapperNav>
             <ul>
                 <li>
-
+                    1
                 </li>
                 <li>
-
+                    2
                 </li>
                 <li>
-
+                    3
                 </li>
                 <li>
-
+                    4
                 </li>
                 <li>
-
+                    5
                 </li>
 
             </ul>
