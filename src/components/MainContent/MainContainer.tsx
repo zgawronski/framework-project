@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 
+import { Link } from 'react-router-dom';
+
 const Wrapper4 = styled.section`
     display: flex;
     position: relative;
@@ -31,6 +33,8 @@ const MainText = styled.div`
 
 const MainTitle = styled.h1`
     margin-left: 5px;
+    font-size: ${fontSize[22]};
+    font-weight: 600;
     color: ${Colors.black};
 `;
 
@@ -49,7 +53,7 @@ const BlockImgPlace = styled.div`
 
 const BlockImg = styled.img`
     position: relative;
-    width: 50px;
+    width: 65px;
     margin: 5px;
     border-radius: 3px;
 `;
@@ -77,11 +81,17 @@ const BlockTxt = styled.div`
     padding: 5px;
 `;
 
-const MainF = styled.a`
+const MainF = styled(Link)`
+    position: absolute;
     color: ${Colors.text};
+    padding-top: 10px;
     margin-left: 5px;
-    font-size: ${fontSize[14]};
+    font-size: ${fontSize[16]};
     text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
 `;
 
 const BlockF = styled.div`
@@ -226,7 +236,7 @@ export const MainContainer: FC = () => {
                 </MainBlocks>
 
 
-                <MainF href="">See more publications</MainF>
+                <MainF to="/publications">See more publications</MainF>
             </MainText>
         </Wrapper4>
     );
