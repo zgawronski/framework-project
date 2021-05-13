@@ -47,6 +47,9 @@ const MainPage: FC = () => {
                         <Route path="/publications">
                             <p>publications</p>
                         </Route>
+                        <Route path="/ecosystem">
+                            <p>ecosystem</p>
+                        </Route>
                         <Route path="/people">
                             <p>people</p>
                         </Route>

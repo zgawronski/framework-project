@@ -1,11 +1,9 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-//import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 
 const WrapperLM = styled.section`
-    /* display: flex; */
     width: 220px;
     border-radius: 8px;
 `;
@@ -85,9 +83,14 @@ const CustomP = styled.p`
     text-align: left;
 `;
 
-const CustomA = styled.a`
+const CustomA = styled(Link)`
     margin-left: 5px;
+    color: ${Colors.black};
     text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
 `;
 
 
@@ -160,15 +163,15 @@ export const LeftMenu: FC = () => {
                 <LeftMain>
                     <LeftColumn>
                         <CustomImg src="./media/icons/publications3.png" alt="" />
-                        <CustomA href="">Publications</CustomA>
+                        <CustomA to="/publications">Publications</CustomA>
                     </LeftColumn>
                     <LeftColumn>
                         <CustomImg src="./media/icons/ecosystem.png" alt="" />
-                        <CustomA href="">Ecosystem</CustomA>
+                        <CustomA to="/ecosystem">Ecosystem</CustomA>
                     </LeftColumn>
                     <LeftColumn>
                         <CustomImg src="./media/icons/entities2.png" alt="" />
-                        <CustomA href="">Entites</CustomA>
+                        <CustomA to="/entities">Entites</CustomA>
                     </LeftColumn>
                 </LeftMain>
         </WrapperLM>
