@@ -11,6 +11,8 @@ const WrapperR = styled(Wrapper)`
     display: block;
     position: relative;
     width: 970px;
+    max-height: 1153px;
+    overflow: hidden;
     margin: 10px;
     padding: 0;
 `;

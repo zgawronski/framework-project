@@ -31,15 +31,41 @@ const InnerWrapper = styled.div`
 `;
 
 const RightIcons = styled.div`
+    display: flex;
     position: absolute;
     right: 2px;
 `;
 
+
+const CustomImg2Div = styled.div`
+display: flex;
+position: relative;
+justify-content: center;
+background-color: ${Colors.lightgrey};
+border-radius: 50%;
+margin-right: 5px;
+width: 35px;
+height: 35px;
+align-items: center;
+
+div{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    padding: 2px 8px 2px 8px;
+    margin: auto;
+    font-size: ${fontSize[12]};
+    font-weight: 600;
+    color: ${Colors.white};
+    border-radius: 8px;
+    background-color: ${Colors.blue};
+}
+`;
+
 const CustomImg2 = styled(CustomImg)`
-    background-color: ${Colors.lightblue};
-    width: 24px;
-    height: 22px;
-    border-radius: 50%;
+    padding: 0;
+    width: 20px;
+    height: 20px;
 `;
 
 const InputWrapper = styled.div`
@@ -127,8 +153,14 @@ export const TopBar: FC = () => {
                 </InputWrapper>
                 <RightIcons>
                     <CustomImg src="./media/icons/house.png" />
-                    <CustomImg2 src="./media/icons/comments.png" />
-                    <CustomImg2 src="./media/icons/bell.png" />
+                    <CustomImg2Div>
+                        <CustomImg2 src="./media/icons/comments.png" />
+                        <div>3</div>
+                    </CustomImg2Div>
+                    <CustomImg2Div>
+                        <CustomImg2 src="./media/icons/bell.png" />
+                        <div>2</div>
+                    </CustomImg2Div>
                 </RightIcons>
             </InnerWrapper>
         </Wrapper2>
