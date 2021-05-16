@@ -1,5 +1,6 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import ReactPaginate from 'react-paginate';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { Wrapper } from '../../styledHelpers/Components';
@@ -11,10 +12,32 @@ const WrapperR = styled(Wrapper)`
     display: block;
     position: relative;
     width: 970px;
-    max-height: 1153px;
     overflow: hidden;
     margin: 10px;
     padding: 0;
+    .pagination {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        color: ${Colors.blue};
+        cursor: pointer;
+        .active {
+            color: ${Colors.black};
+            padding: 5px;
+        }
+        .break-me{
+            padding: 5px;
+        }
+        .page{
+            padding: 5px;
+        }
+        .next{
+            padding: 5px;
+        }
+        .previous{
+            padding: 5px;
+        }
+    }
 `;
 
 
@@ -118,6 +141,7 @@ export const ResumeYourWork: FC = () => {
 
 
     const [inputText, setInputText] = useState<any>("");
+    const [ currentPage, setCurrentPage ] = useState<number>(0);
 
 
     useEffect(()=> {
@@ -128,13 +152,19 @@ export const ResumeYourWork: FC = () => {
 
     }, [apiURL]);
 
-    const currentPosts = posts.slice();
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>)=> {
         const text:string = e.target.value;
         setInputText(text);
 
     }
+
+    const handlePageClick = (data:any) => {
+        const selected = data.selected;
+        setCurrentPage(selected);
+    }
+
+    const currentPosts = posts.slice(currentPage, currentPage +10);
 
     return (
         <WrapperR>
@@ -207,6 +237,21 @@ export const ResumeYourWork: FC = () => {
                     })
                 }
             </WorkContainer>
+            <ReactPaginate
+                previousLabel={'previous'}
+                nextLabel={'next'}
+                breakLabel={'...'}
+                breakClassName={'break-me'}
+                pageCount={posts.length}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageClick}
+                containerClassName={'pagination'}
+                activeClassName={'active'}
+                pageClassName={'page'}
+                previousClassName={'previous'}
+                nextClassName={'next'}
+            />
         </WrapperR>
     );
 };
