@@ -11,9 +11,9 @@ import { getSomeImg } from '../../actions/usersActions';
 const WrapperNav = styled.div`
     position: absolute;
     top: 24px;
-    left: 0px;
+    left: 40px;
     background: ${Colors.white};
-    padding: 16px;
+    padding: 1em;
     border: 1px solid ${Colors.hrgrey};
     z-index: 100;
     overflow-y: auto;
@@ -120,7 +120,7 @@ export const ExpandedMenu: FC = () => {
                 <input type="text" value={inputText} onChange={inputHandler} placeholder="Filter..."/>
                 <p>Platform</p>
                 {'Home'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                    <StyledLink to="/home">
+                    <StyledLink to="/">
                         <div>
                             <img src="./media/icons/house2.png" alt=""/>
                             <span>Home</span>

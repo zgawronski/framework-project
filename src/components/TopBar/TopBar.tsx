@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import useDropdown from 'react-dropdown-hook';
+import { Link } from 'react-router-dom';
 
 import { Wrapper } from '../../styledHelpers/Components';
 import { CustomImg } from '../../styledHelpers/Components';
@@ -141,9 +142,11 @@ export const TopBar: FC = () => {
                 <LogoImg  src="./media/logo.png"/>
 
                 <MenuWrapper ref={wrapperRef}>
-                    <LeftSide onClick={menuHandler}>
+                    <LeftSide>
+                        <Link to="/">
                         <CustomImg src="./media/icons/house2.png" alt="" />
-                        <CustomSpan>Home</CustomSpan>
+                        </Link>
+                        <CustomSpan onClick={menuHandler}>Home</CustomSpan>
                     </LeftSide>
                     <img onClick={menuHandler} src="./media/icons/arrow-down.png" alt="" />
                    {dropdownOpen &&
