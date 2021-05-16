@@ -11,6 +11,7 @@ const defaultState = (): IUsersReducer => ({
     someData: 'Ala nie ma kota bo jej podjebali'
 });
 
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default (state = defaultState(), action: any) => {
     switch (action.type) {
 
@@ -18,7 +19,7 @@ export default (state = defaultState(), action: any) => {
             const data: actionTypes.IUserTypes['GET_USERS'] = action;
             return {
                 ...state,
-                users: data.usersist
+                usersList: data.usersList
             }
         }
 

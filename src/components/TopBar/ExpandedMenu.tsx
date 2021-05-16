@@ -1,9 +1,12 @@
 import { FC, useState, ChangeEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useSelector } from 'react-redux'
 import styled from 'styled-components';
 
+import { IState } from '../../reducers';
+import { IUsersReducer } from '../../reducers/usersReducers';
 import { Colors } from '../../styledHelpers/Colors';
+import { getSomeImg } from '../../actions/usersActions';
 
 const WrapperNav = styled.div`
     position: absolute;
@@ -68,6 +71,10 @@ const LogoutImg = styled.img`
 
 export const ExpandedMenu: FC = () => {
 
+    const { usersList, someData } = useSelector<IState, IUsersReducer>(state => ({
+        ...state.users
+    }));
+
     const [inputText, setInputText] = useState<string>('');
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -75,36 +82,37 @@ export const ExpandedMenu: FC = () => {
         setInputText(text);
     }
 
-    const userID: number = 10;
+    // const userID: number = 10;
 
-    const [person, setPerson] = useState<any>(null);
-    const [imageUrl, setImageUrl] = useState<any>(null);
+    // const [person, setPerson] = useState<any>(null);
+    // const [imageUrl, setImageUrl] = useState<any>(null);
 
-    useEffect(() => {
-        async function getName() {
-            try{
-                const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
-                const data = await response.json();
-                setPerson(data.name);
-            } catch(e){}
-        }
+    // useEffect(() => {
+    //     async function getName() {
+    //         try{
+    //             const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
+    //             const data = await response.json();
+    //             setPerson(data.name);
+    //         } catch(e){}
+    //     }
 
-        async function getUrl(){
-            try{
-                const response = await fetch(`https://jsonplaceholder.typicode.com/photos/${userID}`)
-                const data = await response.json();
-                setImageUrl(data.url);
-            } catch(e){}
-        }
+    //     async function getUrl(){
+    //         try{
+    //             const response = await fetch(`https://jsonplaceholder.typicode.com/photos/${userID}`)
+    //             const data = await response.json();
+    //             setImageUrl(data.url);
+    //         } catch(e){}
+    //     }
 
-           getName();
-           getUrl();
-    });
+    //        getName();
+    //        getUrl();
+    // });
 
     return (
         <WrapperNav>
             <ul>
                 <li>
+                    {someData}
                 <input type="text" value={inputText} onChange={inputHandler} placeholder="Filter..."/>
                 <p>Platform</p>
                 {'Home'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
@@ -208,8 +216,8 @@ export const ExpandedMenu: FC = () => {
                 <hr></hr>
 
                 <div>
-                    <img src={imageUrl} alt=""></img>
-                    <span>{JSON.stringify(person).slice(1,-1)}<br /> See profile </span>
+                    <img src="{getSomeImg}" alt=""></img>
+                    <span>{JSON.stringify({usersList}).slice(1,-1)}<br /> See profile </span>
 
                 </div>
                 <StyledLink to="/privacy">

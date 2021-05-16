@@ -3,12 +3,11 @@ import { Reset } from 'styled-reset';
 import { Provider } from 'react-redux';
 
 import MainPage from './components/MainPage/MainPage';
-//import { GlobalStyle } from './styledHelpers/GlobalStyle';
+import store from './tools/store'
 
 
 
 ReactDOM.render(
-
     <Provider store={store}>
 
         <Reset />
@@ -17,6 +16,5 @@ ReactDOM.render(
     </Provider>,
 
   document.getElementById('root')
-
 );
 

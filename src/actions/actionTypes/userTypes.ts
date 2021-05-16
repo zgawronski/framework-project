@@ -2,13 +2,17 @@ import { ISingleUser } from '../../entities/users';
 
 export const GET_USERS = 'GET_USERS';
 export const PUSH_DATA = 'PUSH_DATA';
+export const GET_IMAGE = 'GET_IMAGE';
 
 export interface IUserTypes {
     GET_USERS: {
-        userslist: ISingleUser[];
+        usersList: ISingleUser[];
     };
     PUSH_DATA: {
         someData: string;
+    }
+    GET_IMAGE: {
+        someImg: ISingleUser[];
     }
 
 }
