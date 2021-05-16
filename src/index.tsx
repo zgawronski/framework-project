@@ -1,27 +1,22 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import { Reset } from 'styled-reset';
+import { Provider } from 'react-redux';
 
 import MainPage from './components/MainPage/MainPage';
-import { GlobalStyle } from './styledHelpers/GlobalStyle';
+//import { GlobalStyle } from './styledHelpers/GlobalStyle';
 
 
 
 ReactDOM.render(
 
-    <>
+    <Provider store={store}>
 
         <Reset />
-        <GlobalStyle />
         <MainPage />
 
-    </>,
+    </Provider>,
 
   document.getElementById('root')
 
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-//reportWebVitals();
