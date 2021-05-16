@@ -12,9 +12,14 @@ const WrapperR = styled(Wrapper)`
     display: block;
     position: relative;
     width: 970px;
-    overflow: hidden;
+    //overflow: hidden;
     margin: 10px;
     padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
     .pagination {
         display: flex;
         position: relative;
@@ -56,6 +61,8 @@ const MainBlocks = styled.div`
     background-color: ${Colors.white};
     border-radius: 5px;
     box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
+    margin-left: auto;
+    margin-right: auto;
     h3{
         color: ${Colors.blue};
         font-size: ${fontSize[18]};
@@ -97,7 +104,8 @@ const SearchDiv = styled.div`
     border-radius: 3px;
 `;
 
-const WorkContainer = styled.div``;
+const WorkContainer = styled.div`
+`;
 
 const TitleContainer = styled.div`
     display: flex;
@@ -238,8 +246,8 @@ export const ResumeYourWork: FC = () => {
                 }
             </WorkContainer>
             <ReactPaginate
-                previousLabel={'previous'}
-                nextLabel={'next'}
+                previousLabel={'PREVIOUS'}
+                nextLabel={'NEXT'}
                 breakLabel={'...'}
                 breakClassName={'break-me'}
                 pageCount={posts.length}

@@ -17,6 +17,11 @@ const WrapperNav = styled.div`
     border: 1px solid ${Colors.hrgrey};
     z-index: 100;
     overflow-y: auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
     p {
         position: relative;
         color: ${ Colors.grey };
@@ -71,7 +76,7 @@ const LogoutImg = styled.img`
 
 export const ExpandedMenu: FC = () => {
 
-    const { usersList, someData } = useSelector<IState, IUsersReducer>(state => ({
+    const { usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
 
@@ -112,7 +117,6 @@ export const ExpandedMenu: FC = () => {
         <WrapperNav>
             <ul>
                 <li>
-                    {someData}
                 <input type="text" value={inputText} onChange={inputHandler} placeholder="Filter..."/>
                 <p>Platform</p>
                 {'Home'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
@@ -217,7 +221,7 @@ export const ExpandedMenu: FC = () => {
 
                 <div>
                     <img src="{getSomeImg}" alt=""></img>
-                    <span>{JSON.stringify({usersList}).slice(1,-1)}<br /> See profile </span>
+                    <span>{JSON.stringify({}).slice(1,-1)}<br /> See profile </span>
 
                 </div>
                 <StyledLink to="/privacy">

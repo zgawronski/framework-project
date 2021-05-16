@@ -18,6 +18,11 @@ const Wrapper2 = styled(Wrapper)`
     margin-bottom: 10px;
     border-radius: 5px;
     box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
 `;
 
 const InnerWrapper = styled.div`
