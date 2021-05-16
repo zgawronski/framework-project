@@ -41,50 +41,50 @@ const MainPage: FC = () => {
                 <Content>
                     <LeftMenu />
                     <Switch>
-                        <Route path="/network">
+                        <Route path="/network" exact>
                             <p>network</p>
                         </Route>
-                        <Route path="/publications">
+                        <Route path="/publications" exact>
                             <p>publications</p>
                         </Route>
-                        <Route path="/ecosystem">
+                        <Route path="/ecosystem" exact>
                             <p>ecosystem</p>
                         </Route>
-                        <Route path="/people">
+                        <Route path="/people" exact>
                             <p>people</p>
                         </Route>
-                        <Route path="/entities">
+                        <Route path="/entities" exact>
                             <p>entities</p>
                         </Route>
-                        <Route path="/administration">
+                        <Route path="/administration" exact>
                             <p>administration</p>
                         </Route>
-                        <Route path="/client_contract">
+                        <Route path="/client_contract" exact>
                             <p>client contract</p>
                         </Route>
-                        <Route path="/suplier_contract">
+                        <Route path="/suplier_contract" exact>
                             <p>suplier contract</p>
                         </Route>
-                        <Route path="/corporate">
+                        <Route path="/corporate" exact>
                             <p>corporate</p>
                         </Route>
-                        <Route path="/group_norms">
+                        <Route path="/group_norms" exact>
                             <p>group norms</p>
                         </Route>
-                        <Route path="/real_estate_contracts">
+                        <Route path="/real_estate_contracts" exact>
                             <p>real estate contracts</p>
                         </Route>
-                        <Route path="/privacy">
+                        <Route path="/privacy" exact>
                             <p>privacy</p>
                         </Route>
-                        <Route path="/settings">
+                        <Route path="/settings" exact>
                             <p>settings</p>
                         </Route>
-                        <Route path="/logout">
+                        <Route path="/logout" exact>
                             <p>logout</p>
                         </Route>
 
-                        <Route path="/">
+                        <Route path="/" exact>
                             <RightSide>
                             <MainContainer/>
                             <WorkSpace/>
