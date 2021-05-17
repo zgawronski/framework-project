@@ -47,7 +47,7 @@ const WrapperR = styled(Wrapper)`
 
 
 const MainTitle = styled.h1`
-    margin-left: 5px;
+    margin-left: 20px;
     color: ${Colors.black};
     font-size: ${fontSize[22]};
     font-weight: 600;

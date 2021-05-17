@@ -76,11 +76,13 @@ const LogoutImg = styled.img`
 
 export const ExpandedMenu: FC = () => {
 
-    const { usersList } = useSelector<IState, IUsersReducer>(state => ({
-        ...state.users
-    }));
+    // const { someImg } = useSelector<IState, IUsersReducer>(state => ({
+    //     ...state.users
+    // }));
 
     const [inputText, setInputText] = useState<string>('');
+    // const [photo, setPhoto] = useState<any>(1);
+    //     setPhoto(someImg)
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const text = e.target.value;
@@ -220,7 +222,7 @@ export const ExpandedMenu: FC = () => {
                 <hr></hr>
 
                 <div>
-                    <img src="{getSomeImg}" alt=""></img>
+                    <img src="" alt=""></img>
                     <span>{JSON.stringify({}).slice(1,-1)}<br /> See profile </span>
 
                 </div>

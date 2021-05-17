@@ -22,7 +22,7 @@ const WrapperW = styled(Wrapper)`
         font-size: ${fontSize[22]};
         font-weight: 600;
         color: ${Colors.black};
-
+        margin-left: 20px;
 
     }
 `;

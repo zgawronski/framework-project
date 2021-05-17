@@ -4,11 +4,13 @@ import * as actionTypes from '../actions/actionTypes/userTypes';
 export interface IUsersReducer {
     usersList: ISingleUser[];
     someData: string;
+    someImg: ISingleUser[];
 }
 
 const defaultState = (): IUsersReducer => ({
     usersList: [],
-    someData: 'Ala nie ma kota bo jej podjebali'
+    someData: 'Ala nie ma kota bo jej podjebali',
+    someImg: []
 });
 
 /* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
@@ -28,6 +30,14 @@ export default (state = defaultState(), action: any) => {
             return {
                 ...state,
                 someData: data.someData
+            }
+        }
+
+        case actionTypes.GET_IMAGE: {
+            const data: actionTypes.IUserTypes['GET_IMAGE'] = action;
+            return {
+                ...state,
+                someImg: data.someImg
             }
         }
         default: {
