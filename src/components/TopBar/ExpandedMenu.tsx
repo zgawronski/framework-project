@@ -55,6 +55,11 @@ const WrapperNav = styled.div`
 
 `;
 
+const UserImg = styled.img`
+    border-radius: 50%;
+
+`;
+
 const StyledLink = styled(Link)`
     text-decoration: none;
 
@@ -83,9 +88,7 @@ export const ExpandedMenu: FC = () => {
         ...state.users
     }));
 
-
     const [inputText, setInputText] = useState<string>('');
-    //const [someImg, setsomeImg] = useState<any>();
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const text = e.target.value;
@@ -98,15 +101,6 @@ export const ExpandedMenu: FC = () => {
         dispatch<GetSomeImg>(getSomeImg());
         dispatch<GetUsers>(getUsers());
     }, [dispatch]);
-    // const userID: number = 10;
-
-    // const [person, setPerson] = useState<any>(null);
-    // const [imageUrl, setImageUrl] = useState<any>(null);
-
-    // useEffect(() => {
-
-    //        setsomeImg(someImg)
-    // }, [someImg]);
 
     return (
         <WrapperNav>
@@ -215,7 +209,7 @@ export const ExpandedMenu: FC = () => {
                 <hr></hr>
 
                 <div>
-                    <img src={someImg[0].url} alt=""></img>
+                    <UserImg src={someImg[0].url} alt=""></UserImg>
                     <span>{JSON.stringify(usersList[0].name).slice(1,-1)}<br /> See profile </span>
                 </div>
                 <StyledLink to="/privacy">
