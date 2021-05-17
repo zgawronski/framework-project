@@ -6,9 +6,10 @@ import styled from 'styled-components';
 import { IState } from '../../reducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { Colors } from '../../styledHelpers/Colors';
-import { getSomeImg } from '../../actions/usersActions';
+import { getSomeImg, getUsers } from '../../actions/usersActions';
 
 type GetSomeImg = ReturnType<typeof getSomeImg>
+type GetUsers = ReturnType<typeof getUsers>
 
 const WrapperNav = styled.div`
     position: absolute;
@@ -78,7 +79,7 @@ const LogoutImg = styled.img`
 
 export const ExpandedMenu: FC = () => {
 
-    const { someImg } = useSelector<IState, IUsersReducer>(state => ({
+    const { someImg, usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
 
@@ -95,6 +96,7 @@ export const ExpandedMenu: FC = () => {
 
     useEffect(() => {
         dispatch<GetSomeImg>(getSomeImg());
+        dispatch<GetUsers>(getUsers());
     }, [dispatch]);
     // const userID: number = 10;
 
@@ -214,7 +216,7 @@ export const ExpandedMenu: FC = () => {
 
                 <div>
                     <img src={someImg[0].url} alt=""></img>
-                    <span>{JSON.stringify({}).slice(1,-1)}<br /> See profile </span>
+                    <span>{JSON.stringify(usersList[0].name).slice(1,-1)}<br /> See profile </span>
                 </div>
                 <StyledLink to="/privacy">
                     <div>
