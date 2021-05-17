@@ -43,7 +43,7 @@ const MainPage: FC = () => {
 
     useEffect(() => {
         dispatch<GetUsers>(getUsers());
-    }, []);
+    }, [dispatch]);
 
     const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         dispatch<GetSomeData>(getSomeData('kot wraca do Ali'));

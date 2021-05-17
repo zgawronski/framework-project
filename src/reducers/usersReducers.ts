@@ -1,10 +1,11 @@
 import { ISingleUser } from '../entities/users';
 import * as actionTypes from '../actions/actionTypes/userTypes';
+import { ISinglePhoto } from '../entities/photos'
 
 export interface IUsersReducer {
     usersList: ISingleUser[];
     someData: string;
-    someImg: ISingleUser[];
+    someImg: ISinglePhoto[];
 }
 
 const defaultState = (): IUsersReducer => ({

@@ -1,4 +1,5 @@
 import { ISingleUser } from '../../entities/users';
+import { ISinglePhoto } from '../../entities/photos';
 
 export const GET_USERS = 'GET_USERS';
 export const PUSH_DATA = 'PUSH_DATA';
@@ -12,7 +13,7 @@ export interface IUserTypes {
         someData: string;
     }
     GET_IMAGE: {
-        someImg: ISingleUser[];
+        someImg: ISinglePhoto[];
     }
 
 }

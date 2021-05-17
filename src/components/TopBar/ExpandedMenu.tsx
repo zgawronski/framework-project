@@ -1,12 +1,14 @@
 import { FC, useState, ChangeEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components';
 
 import { IState } from '../../reducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { Colors } from '../../styledHelpers/Colors';
 import { getSomeImg } from '../../actions/usersActions';
+
+type GetSomeImg = ReturnType<typeof getSomeImg>
 
 const WrapperNav = styled.div`
     position: absolute;
@@ -76,44 +78,33 @@ const LogoutImg = styled.img`
 
 export const ExpandedMenu: FC = () => {
 
-    // const { someImg } = useSelector<IState, IUsersReducer>(state => ({
-    //     ...state.users
-    // }));
+    const { someImg } = useSelector<IState, IUsersReducer>(state => ({
+        ...state.users
+    }));
+
 
     const [inputText, setInputText] = useState<string>('');
-    // const [photo, setPhoto] = useState<any>(1);
-    //     setPhoto(someImg)
+    //const [someImg, setsomeImg] = useState<any>();
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const text = e.target.value;
         setInputText(text);
     }
 
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch<GetSomeImg>(getSomeImg());
+    }, [dispatch]);
     // const userID: number = 10;
 
     // const [person, setPerson] = useState<any>(null);
     // const [imageUrl, setImageUrl] = useState<any>(null);
 
     // useEffect(() => {
-    //     async function getName() {
-    //         try{
-    //             const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
-    //             const data = await response.json();
-    //             setPerson(data.name);
-    //         } catch(e){}
-    //     }
 
-    //     async function getUrl(){
-    //         try{
-    //             const response = await fetch(`https://jsonplaceholder.typicode.com/photos/${userID}`)
-    //             const data = await response.json();
-    //             setImageUrl(data.url);
-    //         } catch(e){}
-    //     }
-
-    //        getName();
-    //        getUrl();
-    // });
+    //        setsomeImg(someImg)
+    // }, [someImg]);
 
     return (
         <WrapperNav>
@@ -222,9 +213,8 @@ export const ExpandedMenu: FC = () => {
                 <hr></hr>
 
                 <div>
-                    <img src="" alt=""></img>
+                    <img src={someImg[0].url} alt=""></img>
                     <span>{JSON.stringify({}).slice(1,-1)}<br /> See profile </span>
-
                 </div>
                 <StyledLink to="/privacy">
                     <div>
