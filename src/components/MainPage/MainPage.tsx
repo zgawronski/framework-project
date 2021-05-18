@@ -45,9 +45,9 @@ const MainPage: FC = () => {
         dispatch<GetUsers>(getUsers());
     }, [dispatch]);
 
-    const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-        dispatch<GetSomeData>(getSomeData('kot wraca do Ali'));
-    }
+    // const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    //     dispatch<GetSomeData>(getSomeData('kot wraca do Ali'));
+    // }
 
     return (
         <Router>

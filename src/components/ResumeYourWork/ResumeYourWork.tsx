@@ -8,8 +8,10 @@ import { fontSize } from '../../styledHelpers/FontSizes';
 import useDropdown from 'react-dropdown-hook';
 import { ExpandedFollowedMenu } from './ExpandedFollowedMenu';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getUsers, getComments } from '../../actions/usersActions';
+import { IState } from '../../reducers';
+import { IUsersReducer } from '../../reducers/usersReducers';
 
 type GetUsers = ReturnType<typeof getUsers>
 type GetComments = ReturnType<typeof getComments>
@@ -153,11 +155,15 @@ export const ResumeYourWork: FC = () => {
         toggleDropdown();
     };
 
+    const { usersComment } = useSelector<IState, IUsersReducer>(state => ({
+        ...state.users
+    }));
+
     const [posts, setPosts] = useState<any>([]);
 
 
     const [inputText, setInputText] = useState<any>("");
-    const [ currentPage, setCurrentPage ] = useState<number>(0);
+    const [currentPage, setCurrentPage] = useState<number>(0);
 
 
     const dispatch = useDispatch();
@@ -165,7 +171,8 @@ export const ResumeYourWork: FC = () => {
     useEffect(() => {
         dispatch<GetUsers>(getUsers());
         dispatch<GetComments>(getComments());
-    }, [dispatch]);
+        setPosts(usersComment);
+    }, [dispatch, usersComment]);
 
 
 

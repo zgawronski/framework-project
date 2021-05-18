@@ -56,8 +56,18 @@ const WrapperNav = styled.div`
 `;
 
 const UserImg = styled.img`
+    position: absolute;
+    padding: 10px;
+    margin: 0;
     border-radius: 50%;
+    top: -10px;
+    left: -10px;
+`;
 
+const UserSpan = styled.span`
+    position: relative;
+    left: 40px;
+    top: -5px;
 `;
 
 const StyledLink = styled(Link)`
@@ -214,8 +224,8 @@ export const ExpandedMenu: FC = () => {
                 <hr></hr>
                 <StyledLink to="/profile">
                     <ProfilDiv>
-                        <li><UserImg src={someImg[0]?.url} alt=""></UserImg></li>
-                        <li><span>{JSON.stringify(usersList[0]?.name).slice(1,-1)}<br /> See profile </span></li>
+                        <li><UserImg src={someImg[9]?.url} alt=""></UserImg></li>
+                        <li><UserSpan>{JSON.stringify(usersList[9]?.name).slice(1,-1)}<br /> See profile </UserSpan></li>
                     </ProfilDiv>
                 </StyledLink>
                 <StyledLink to="/privacy">

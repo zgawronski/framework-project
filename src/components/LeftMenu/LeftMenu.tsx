@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Colors } from '../../styledHelpers/Colors';
@@ -128,8 +128,8 @@ export const LeftMenu: FC = () => {
         <WrapperLM>
                 <PhotoBox>
                     <Photo src={someImg[9]?.url}></Photo>
-                    <Sign>{JSON.stringify(usersList[9]?.name).slice(1,-1)}</Sign>
-                    <JobDescription>{JSON.stringify(usersList[9]?.company.name).slice(1,-1)}</JobDescription>
+                    <Sign>{JSON.stringify(usersList[9]?.name)?.slice(1,-1)}</Sign>
+                    <JobDescription>{JSON.stringify(usersList[9]?.company.name)?.slice(1,-1)}</JobDescription>
                     <CustomHr></CustomHr>
                     <BoxText>
                         <CustomText>
