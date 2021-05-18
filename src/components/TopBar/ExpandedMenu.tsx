@@ -68,6 +68,10 @@ const StyledLink = styled(Link)`
     }
 `;
 
+const ProfilDiv = styled.div`
+
+`;
+
 const LogoutDiv = styled.div`
 `;
 
@@ -89,6 +93,7 @@ export const ExpandedMenu: FC = () => {
     }));
 
     const [inputText, setInputText] = useState<string>('');
+
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const text = e.target.value;
@@ -207,11 +212,12 @@ export const ExpandedMenu: FC = () => {
                 }
                 </li>
                 <hr></hr>
-
-                <div>
-                    <UserImg src={someImg[0].url} alt=""></UserImg>
-                    <span>{JSON.stringify(usersList[0].name).slice(1,-1)}<br /> See profile </span>
-                </div>
+                <StyledLink to="/profile">
+                    <ProfilDiv>
+                        <li><UserImg src={someImg[0]?.url} alt=""></UserImg></li>
+                        <li><span>{JSON.stringify(usersList[0]?.name).slice(1,-1)}<br /> See profile </span></li>
+                    </ProfilDiv>
+                </StyledLink>
                 <StyledLink to="/privacy">
                     <div>
                         <img src="./media/icons/privacy.svg" alt=""/>
