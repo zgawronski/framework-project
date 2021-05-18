@@ -8,6 +8,12 @@ import { fontSize } from '../../styledHelpers/FontSizes';
 import useDropdown from 'react-dropdown-hook';
 import { ExpandedFollowedMenu } from './ExpandedFollowedMenu';
 
+import { useDispatch } from 'react-redux';
+import { getUsers, getComments } from '../../actions/usersActions';
+
+type GetUsers = ReturnType<typeof getUsers>
+type GetComments = ReturnType<typeof getComments>
+
 const WrapperR = styled(Wrapper)`
     display: block;
     position: relative;
@@ -26,6 +32,7 @@ const WrapperR = styled(Wrapper)`
         justify-content: center;
         color: ${Colors.blue};
         cursor: pointer;
+        background-color: ${Colors.white};
         .active {
             color: ${Colors.black};
             padding: 5px;
@@ -111,6 +118,7 @@ const TitleContainer = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    background-color: ${Colors.white};
     img{
         max-width: 20px;
         max-height: 20px;
@@ -144,7 +152,7 @@ export const ResumeYourWork: FC = () => {
     const menuHandler = () => {
         toggleDropdown();
     };
-    const apiURL = `https://jsonplaceholder.typicode.com/comments/`;
+
     const [posts, setPosts] = useState<any>([]);
 
 
@@ -152,13 +160,13 @@ export const ResumeYourWork: FC = () => {
     const [ currentPage, setCurrentPage ] = useState<number>(0);
 
 
-    useEffect(()=> {
+    const dispatch = useDispatch();
 
-        fetch(apiURL)
-        .then(res=> res.json())
-        .then(data => setPosts(data))
+    useEffect(() => {
+        dispatch<GetUsers>(getUsers());
+        dispatch<GetComments>(getComments());
+    }, [dispatch]);
 
-    }, [apiURL]);
 
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>)=> {

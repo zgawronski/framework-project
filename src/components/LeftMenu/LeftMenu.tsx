@@ -3,6 +3,14 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Colors } from '../../styledHelpers/Colors';
 
+import { IState } from '../../reducers';
+import { IUsersReducer } from '../../reducers/usersReducers';
+import { getSomeImg, getUsers } from '../../actions/usersActions';
+import { useDispatch, useSelector } from 'react-redux';
+
+type GetSomeImg = ReturnType<typeof getSomeImg>
+type GetUsers = ReturnType<typeof getUsers>
+
 const WrapperLM = styled.section`
     width: 220px;
     border-radius: 8px;
@@ -105,48 +113,23 @@ const LeftColumn = styled.section`
     margin-bottom: 10px;
 `;
 export const LeftMenu: FC = () => {
+    const { someImg, usersList } = useSelector<IState, IUsersReducer>(state => ({
+        ...state.users
+    }));
 
-    const userID: number = 10;
-
-    const [person, setPerson] = useState<any>(null);
-    const [company, setCompany] = useState<any>(null);
-    const [imageUrl, setImageUrl] = useState<any>(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        async function getName() {
-            try{
-                const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
-                const data = await response.json();
-                setPerson(data.name);
-            } catch(e){}
-        }
-        async function getCompany() {
-            try{
-                const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
-                const data = await response.json();
-                setCompany(data.company.name);
-            } catch(e){}
-        }
-
-        async function getUrl(){
-            try{
-                const response = await fetch(`https://jsonplaceholder.typicode.com/photos/${userID}`)
-                const data = await response.json();
-                setImageUrl(data.url);
-            } catch(e){}
-        }
-
-           getName();
-           getCompany();
-           getUrl();
-    });
+        dispatch<GetSomeImg>(getSomeImg());
+        dispatch<GetUsers>(getUsers());
+    }, [dispatch]);
 
     return (
         <WrapperLM>
                 <PhotoBox>
-                    <Photo src={imageUrl}></Photo>
-                    <Sign>{JSON.stringify(person).slice(1,-1)}</Sign>
-                    <JobDescription>{JSON.stringify(company).slice(1,-1)}</JobDescription>
+                    <Photo src={someImg[9]?.url}></Photo>
+                    <Sign>{JSON.stringify(usersList[9]?.name).slice(1,-1)}</Sign>
+                    <JobDescription>{JSON.stringify(usersList[9]?.company.name).slice(1,-1)}</JobDescription>
                     <CustomHr></CustomHr>
                     <BoxText>
                         <CustomText>
