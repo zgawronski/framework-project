@@ -5,6 +5,16 @@ import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 
 import { Link } from 'react-router-dom';
+import { IState } from '../../reducers';
+import { IUsersReducer } from '../../reducers/usersReducers';
+import { getSomeImg, getUsers, getComments } from '../../actions/usersActions';
+import { useDispatch, useSelector } from 'react-redux';
+
+type GetSomeImg = ReturnType<typeof getSomeImg>
+type GetUsers = ReturnType<typeof getUsers>
+type GetComments = ReturnType<typeof getComments>
+
+
 
 const Wrapper4 = styled.section`
     display: flex;
@@ -124,119 +134,67 @@ const DataP = styled.p`
 const BlockUser = styled.div``;
 
 export const MainContainer: FC = () => {
-    const postId: number = 3;
+    const { someImg, usersList, usersComment } = useSelector<IState, IUsersReducer>(state => ({
+        ...state.users
+    }));
 
-    const [postImage, setPostImage ] = useState<any>(1);
-    const [image, setImage] = useState<any>([]);
-    const [body, setBody] = useState<any>([]);
-
-    const [userId, setUserID] = useState<any>(10);
-    const [userName, setUserName] = useState<any>([]);
-    const [userImage, setUserImage] = useState<any>([]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        async function getInfo(postID: number) {
-            try{
-                const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postID}`);
-                const data = await response.json();
-                const body = JSON.stringify(data.body).slice(1,-103);
-                const bodyFirstLetterUpper = body.charAt(0).toUpperCase() + body.slice(1);
-                setUserID(data.userId);
-
-
-                const responseUrl = await fetch(`https://jsonplaceholder.typicode.com/photos/${postID}`);
-                const dataUrl = await responseUrl.json();
-                const url = JSON.stringify(dataUrl.url).slice(1,-1);
-
-                const responseUser = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
-                const dataUser = await responseUser.json();
-
-                const responseUrlIcon = await fetch(`https://jsonplaceholder.typicode.com/photos/${userId}`);
-                const dataUrlIcon = await responseUrlIcon.json();
-
-                setImage((arr: any) => ([...arr, url]));
-                setBody((arr: any) => ([...arr, bodyFirstLetterUpper]));
-
-                if(dataUser.name != null){
-                    const userName = JSON.stringify(dataUser.name).slice(1,-1);
-                    setUserName((arr: any) => ([...arr, userName]));
-                }
-
-                if(dataUrlIcon.url != null){
-                    const urlIcon = JSON.stringify(dataUrlIcon.url).slice(1,-1);
-                    setUserImage(urlIcon);
-                }
-            }catch(e){}
-
-
-        }
-        async function getPostImage(postID: number){
-            try{
-                const response = await fetch(`https://jsonplaceholder.typicode.com/photos/${postID}`);
-                const data = await response.json();
-                const url = JSON.stringify(data.url).slice(1,-1);
-                setPostImage(url);
-            }catch(e){}
-
-        }
-        try{
-            getPostImage(postId)
-            getInfo(postId);
-            getInfo(5);
-            getInfo(6);
-        } catch(e){}
-
-    }, [userId]);
+        dispatch<GetUsers>(getUsers());
+        dispatch<GetComments>(getComments());
+        dispatch<GetSomeImg>(getSomeImg());
+    }, [dispatch]);
 
     return (
         <Wrapper4>
             <BlockImgPlace>
-                <MainImg src={postImage} alt="" />
-                <MainP>{body[3]}</MainP>
+                <MainImg src={someImg[9]?.url} alt="" />
+                <MainP>{usersComment[9]?.body.slice(1, -50)}</MainP>
                 <BlockImgF>
                     <DataP>7 jan 2020</DataP>
-                    <BlockUserImg src={userImage} alt=""/>
-                    <BlockUser>{userName[2]}</BlockUser>
+                    <BlockUserImg src={someImg[0]?.url} alt=""/>
+                    <BlockUser>{usersList[0]?.name}</BlockUser>
                 </BlockImgF>
             </BlockImgPlace>
             <MainText>
                 <MainTitle>Latest publications</MainTitle>
                 <MainBlocks>
-                    <BlockImg src={image[0]} alt=""/>
+                    <BlockImg src={someImg[0]?.url} alt=""/>
                     <div>
                         <BlockTxt>
-                            <p>{body[0]}</p>
+                            <p>{usersComment[0]?.body}</p>
                         </BlockTxt>
                         <BlockF>
                             <DataP>7 jan 2020</DataP>
-                            <BlockUserImg src={userImage} alt=""/>
-                            <BlockUser>{userName[2]}</BlockUser>
+                            <BlockUserImg src={someImg[0]?.url} alt=""/>
+                            <BlockUser>{usersList[0]?.name}</BlockUser>
                         </BlockF>
                     </div>
                 </MainBlocks>
                 <MainBlocks>
-                    <BlockImg src={image[1]} alt=""/>
+                    <BlockImg src={someImg[1]?.url} alt=""/>
                     <div>
                         <BlockTxt>
-                            <p>{body[1]}</p>
+                            <p>{usersComment[1]?.body}</p>
                         </BlockTxt>
                         <BlockF>
                             <DataP>7 jan 2020</DataP>
-                            <BlockUserImg src={userImage} alt=""/>
-                            <BlockUser>{userName[2]}</BlockUser>
+                            <BlockUserImg src={someImg[1]?.url} alt=""/>
+                            <BlockUser>{usersList[1]?.name}</BlockUser>
                         </BlockF>
                     </div>
                 </MainBlocks>
                 <MainBlocks>
-                    <BlockImg src={image[2]} alt=""/>
+                    <BlockImg src={someImg[2]?.url} alt=""/>
                     <div>
                         <BlockTxt>
-                            <p>{body[2]}</p>
+                            <p>{usersComment[2]?.body}</p>
                         </BlockTxt>
                         <BlockF>
                             <DataP>7 jan 2020</DataP>
-                            <BlockUserImg src={userImage} alt=""/>
-                            <BlockUser>{userName[2]}</BlockUser>
+                            <BlockUserImg src={someImg[2]?.url} alt=""/>
+                            <BlockUser>{usersList[1]?.name}</BlockUser>
                         </BlockF>
                     </div>
                 </MainBlocks>
