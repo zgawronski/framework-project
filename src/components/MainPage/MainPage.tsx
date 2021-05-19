@@ -16,7 +16,7 @@ import { getUsers, getSomeData } from '../../actions/usersActions';
 //import { Entities } from '../Entities/Entities';
 
 type GetUsers = ReturnType<typeof getUsers>
-type GetSomeData = ReturnType<typeof getSomeData>
+//type GetSomeData = ReturnType<typeof getSomeData>
 
 const WrapperM = styled.section`
 
