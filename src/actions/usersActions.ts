@@ -16,14 +16,6 @@ export const getUsers = (): Promise<ISingleUser[]> => ((dispatch: Dispatch) => {
         })
 }) as any;
 
-export const getSomeData = (someData: string): Promise<ISingleUser[]> => ((dispatch: Dispatch) => {
-
-    dispatch({
-        type: actionTypes.PUSH_DATA,
-        someData
-    })
-}) as any;
-
 export const getSomeImg = (): Promise<ISinglePhoto[]> => ((dispatch: Dispatch) => {
 
     return fetch('https://jsonplaceholder.typicode.com/photos')

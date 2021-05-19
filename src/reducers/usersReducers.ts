@@ -5,14 +5,12 @@ import { ISingleComment } from '../entities/comments';
 
 export interface IUsersReducer {
     usersList: ISingleUser[];
-    someData: string;
     someImg: ISinglePhoto[];
     usersComment: ISingleComment[];
 }
 
 const defaultState = (): IUsersReducer => ({
     usersList: [],
-    someData: 'Ala nie ma kota bo jej podjebali',
     someImg: [],
     usersComment: []
 });
@@ -26,14 +24,6 @@ export default (state = defaultState(), action: any) => {
             return {
                 ...state,
                 usersList: data.usersList
-            }
-        }
-
-        case actionTypes.PUSH_DATA: {
-            const data: actionTypes.IUserTypes['PUSH_DATA'] = action;
-            return {
-                ...state,
-                someData: data.someData
             }
         }
 
