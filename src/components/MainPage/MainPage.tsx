@@ -12,11 +12,10 @@ import { Route } from 'react-router';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { ResumeYourWork } from '../ResumeYourWork/ResumeYourWork';
 import { useDispatch } from 'react-redux';
-import { getUsers, getSomeData } from '../../actions/usersActions';
+import { getUsers } from '../../actions/usersActions';
 //import { Entities } from '../Entities/Entities';
 
 type GetUsers = ReturnType<typeof getUsers>
-//type GetSomeData = ReturnType<typeof getSomeData>
 
 const WrapperM = styled.section`
 
@@ -33,21 +32,12 @@ const RightSide = styled.div`
 
 `;
 
-// const ContentDiv = styled.div`
-
-//     padding: 10px;
-// `;
-
 const MainPage: FC = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch<GetUsers>(getUsers());
     }, [dispatch]);
-
-    // const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    //     dispatch<GetSomeData>(getSomeData('kot wraca do Ali'));
-    // }
 
     return (
         <Router>
