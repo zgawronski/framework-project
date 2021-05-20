@@ -242,19 +242,21 @@ export const ResumeYourWork: FC = () => {
 
                                 <p>{us.body.charAt(0).toUpperCase()+us.body.slice(1)}</p>
 
-                                <div>
+                                <FDiv>
                                     <div>
                                         <img src="./media/icons/ecosystem.svg" alt=""></img>
                                         <p>Subsid. corp.</p>
+                                        &bull;
                                     </div>
                                     <div className="Corp">
                                         <img src="./media/icons/entities2.svg" alt=""></img>
                                         <p>Corporate</p>
+                                        &bull;
                                     </div>
                                     <div>
                                         <p>{us.email}</p>
                                     </div>
-                                </div>
+                                </FDiv>
                             </MainBlocks>
                         )
                     })
