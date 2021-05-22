@@ -33,7 +33,6 @@ const PhotoBox = styled.div`
     text-align: center;
     border-radius: 5px;
     box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
-
 `;
 
 const Photo = styled.img`
@@ -51,7 +50,6 @@ const Sign = styled.span`
     margin: 5px;
     padding: 5px;
     color: ${Colors.darkblue};
-
 `;
 
 const JobDescription = styled.p`
@@ -100,7 +98,6 @@ const CustomA = styled(Link)`
     margin-left: 5px;
     color: ${Colors.black};
     text-decoration: none;
-
     &:focus, &:hover, &:visited, &:link, &:active {
         text-decoration: none;
     }
