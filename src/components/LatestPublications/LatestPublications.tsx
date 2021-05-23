@@ -7,13 +7,13 @@ import { fontSize } from '../../styledHelpers/FontSizes';
 import { Link } from 'react-router-dom';
 import { IState } from '../../reducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
-import { getSomeImg, getUsers, getComments } from '../../actions/usersActions';
+import { getSomeImg, getUsers, getComments, getPosts } from '../../actions/usersActions';
 import { useDispatch, useSelector } from 'react-redux';
 
 type GetSomeImg = ReturnType<typeof getSomeImg>
 type GetUsers = ReturnType<typeof getUsers>
 type GetComments = ReturnType<typeof getComments>
-
+type GetPosts = ReturnType<typeof getPosts>
 
 
 const Wrapper4 = styled.section`
@@ -134,7 +134,7 @@ const DataP = styled.p`
 const BlockUser = styled.div``;
 
 export const MainContainer: FC = () => {
-    const { someImg, usersList, usersComment } = useSelector<IState, IUsersReducer>(state => ({
+    const { someImg, usersList, usersComment, usersPost } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
 
@@ -144,6 +144,7 @@ export const MainContainer: FC = () => {
         dispatch<GetUsers>(getUsers());
         dispatch<GetComments>(getComments());
         dispatch<GetSomeImg>(getSomeImg());
+        dispatch<GetPosts>(getPosts());
     }, [dispatch]);
 
     return (
@@ -172,7 +173,7 @@ export const MainContainer: FC = () => {
                         </BlockF>
                     </div>
                 </MainBlocks>
-                <MainBlocks>
+                {/* <MainBlocks>
                     <BlockImg src={someImg[1]?.url} alt=""/>
                     <div>
                         <BlockTxt>
@@ -197,7 +198,7 @@ export const MainContainer: FC = () => {
                             <BlockUser>{usersList[1]?.name}</BlockUser>
                         </BlockF>
                     </div>
-                </MainBlocks>
+                </MainBlocks> */}
 
                 <MainF to="/publications">See more publications</MainF>
             </MainText>
