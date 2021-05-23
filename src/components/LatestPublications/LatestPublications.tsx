@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
@@ -140,12 +140,15 @@ export const MainContainer: FC = () => {
 
     const dispatch = useDispatch();
 
+    const [ post, setPost ] = useState<any>([]);
+
     useEffect(() => {
         dispatch<GetUsers>(getUsers());
         dispatch<GetComments>(getComments());
         dispatch<GetSomeImg>(getSomeImg());
         dispatch<GetPosts>(getPosts());
-    }, [dispatch]);
+        setPost(usersPost);
+    }, [dispatch, usersPost]);
 
     return (
         <Wrapper4>
@@ -160,45 +163,22 @@ export const MainContainer: FC = () => {
             </BlockImgPlace>
             <MainText>
                 <MainTitle>Latest publications</MainTitle>
-                <MainBlocks>
+                { post.slice(1, 4).map((user: any) =>{
+                    return(
+                    <MainBlocks key={user.id}>
                     <BlockImg src={someImg[0]?.url} alt=""/>
                     <div>
                         <BlockTxt>
-                            <p>{usersComment[0]?.body}</p>
+                            <p>{user.body}</p>
                         </BlockTxt>
                         <BlockF>
                             <DataP>7 jan 2020</DataP>
                             <BlockUserImg src={someImg[0]?.url} alt=""/>
-                            <BlockUser>{usersList[0]?.name}</BlockUser>
+                            <BlockUser>{user.name}</BlockUser>
                         </BlockF>
                     </div>
-                </MainBlocks>
-                {/* <MainBlocks>
-                    <BlockImg src={someImg[1]?.url} alt=""/>
-                    <div>
-                        <BlockTxt>
-                            <p>{usersComment[1]?.body}</p>
-                        </BlockTxt>
-                        <BlockF>
-                            <DataP>7 jan 2020</DataP>
-                            <BlockUserImg src={someImg[1]?.url} alt=""/>
-                            <BlockUser>{usersList[1]?.name}</BlockUser>
-                        </BlockF>
-                    </div>
-                </MainBlocks>
-                <MainBlocks>
-                    <BlockImg src={someImg[2]?.url} alt=""/>
-                    <div>
-                        <BlockTxt>
-                            <p>{usersComment[2]?.body}</p>
-                        </BlockTxt>
-                        <BlockF>
-                            <DataP>7 jan 2020</DataP>
-                            <BlockUserImg src={someImg[2]?.url} alt=""/>
-                            <BlockUser>{usersList[1]?.name}</BlockUser>
-                        </BlockF>
-                    </div>
-                </MainBlocks> */}
+                </MainBlocks>)
+                })}
 
                 <MainF to="/publications">See more publications</MainF>
             </MainText>
