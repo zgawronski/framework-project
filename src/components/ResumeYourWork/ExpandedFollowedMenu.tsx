@@ -1,4 +1,4 @@
-import { FC,} from 'react';
+import { FC, } from 'react';
 // import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
@@ -21,9 +21,6 @@ const WrapperNav = styled.div`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-
 `;
 
 

@@ -23,11 +23,9 @@ const WrapperNav = styled.div`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
     p {
         position: relative;
-        color: ${ Colors.grey };
+        color: ${Colors.grey};
         padding-top: 5px;
         padding-bottom: 5px;
     }
@@ -121,122 +119,122 @@ export const ExpandedMenu: FC = () => {
         <WrapperNav>
             <ul>
                 <li>
-                <input type="text" value={inputText} onChange={inputHandler} placeholder="Filter..."/>
-                <p>Platform</p>
-                {'Home'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                    <StyledLink to="/">
-                        <div>
-                            <img src="./media/icons/house2.png" alt=""/>
-                            <span>Home</span>
-                        </div>
-                    </StyledLink>
-                }
+                    <input type="text" value={inputText} onChange={inputHandler} placeholder="Filter..." />
+                    <p>Platform</p>
+                    {'Home'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                        <StyledLink to="/">
+                            <div>
+                                <img src="./media/icons/house2.png" alt="" />
+                                <span>Home</span>
+                            </div>
+                        </StyledLink>
+                    }
                 </li>
                 <li>
-                {'Publications'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                    <StyledLink to="/publications">
-                        <div>
-                            <img src="./media/icons/publications3.png" alt=""/>
-                            <span>Publications</span>
-                        </div>
-                    </StyledLink>
-                }
+                    {'Publications'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                        <StyledLink to="/publications">
+                            <div>
+                                <img src="./media/icons/publications3.png" alt="" />
+                                <span>Publications</span>
+                            </div>
+                        </StyledLink>
+                    }
                 </li>
                 <li>
-                {'People'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                    <StyledLink to="/people">
-                        <div>
-                            <img src="./media/icons/people.svg" alt=""/>
-                            <span>People</span>
-                        </div>
-                    </StyledLink>
-                }
+                    {'People'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                        <StyledLink to="/people">
+                            <div>
+                                <img src="./media/icons/people.svg" alt="" />
+                                <span>People</span>
+                            </div>
+                        </StyledLink>
+                    }
                 </li>
                 <li>
-                {'Entities'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                    <StyledLink to="/entities">
-                        <div>
-                            <img src="./media/icons/entities2.svg" alt=""/>
-                            <span>Entities</span>
-                        </div>
-                    </StyledLink>
-                }
+                    {'Entities'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                        <StyledLink to="/entities">
+                            <div>
+                                <img src="./media/icons/entities2.svg" alt="" />
+                                <span>Entities</span>
+                            </div>
+                        </StyledLink>
+                    }
                 </li>
                 <li>
-                {'Administration'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                    <StyledLink to="/administration">
-                        <div>
-                            <img src="./media/icons/administration.svg" alt=""/>
-                            <span>Administration</span>
-                        </div>
-                    </StyledLink>
-                }
+                    {'Administration'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                        <StyledLink to="/administration">
+                            <div>
+                                <img src="./media/icons/administration.svg" alt="" />
+                                <span>Administration</span>
+                            </div>
+                        </StyledLink>
+                    }
                 </li>
                 <p>Workspace</p>
                 <li>
-                {'Cilent contract'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                    <StyledLink to="/client_contract">
-                    <div>
-                        <img src="./media/icons/sign.png" alt=""/>
-                        <span>Cilent contract</span>
-                    </div>
-                    </StyledLink>
-                }
+                    {'Cilent contract'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                        <StyledLink to="/client_contract">
+                            <div>
+                                <img src="./media/icons/sign.png" alt="" />
+                                <span>Cilent contract</span>
+                            </div>
+                        </StyledLink>
+                    }
                 </li>
                 <li>
-                {'Supplier contract'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                    <StyledLink to="/suplier_contract">
-                        <div>
-                            <img src="./media/icons/sign.png" alt=""/>
-                            <span>Supplier contract</span>
-                        </div>
-                    </StyledLink>
-                }
+                    {'Supplier contract'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                        <StyledLink to="/suplier_contract">
+                            <div>
+                                <img src="./media/icons/sign.png" alt="" />
+                                <span>Supplier contract</span>
+                            </div>
+                        </StyledLink>
+                    }
                 </li>
                 {'Corporate'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
                     <StyledLink to="/corporate">
                         <div>
-                            <img src="./media/icons/entities.svg" alt=""/>
+                            <img src="./media/icons/entities.svg" alt="" />
                             <span>Corporate</span>
                         </div>
                     </StyledLink>
                 }
                 <li>
-                {'Group Norms'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                    <StyledLink to="/group_norms">
-                        <div>
-                            <img src="./media/icons/publications4.png" alt=""/>
-                            <span>Group Norms</span>
-                        </div>
-                    </StyledLink>
-                }
+                    {'Group Norms'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                        <StyledLink to="/group_norms">
+                            <div>
+                                <img src="./media/icons/publications4.png" alt="" />
+                                <span>Group Norms</span>
+                            </div>
+                        </StyledLink>
+                    }
                 </li>
                 <li>
-                {'Real estate contracts'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
-                    <StyledLink to="/real_estate_contracts">
-                        <div>
-                            <img src="./media/icons/sign.png" alt=""/>
-                            <span>Real estate contracts</span>
-                        </div>
-                    </StyledLink>
-                }
+                    {'Real estate contracts'.toLocaleLowerCase().includes(inputText.toLowerCase()) &&
+                        <StyledLink to="/real_estate_contracts">
+                            <div>
+                                <img src="./media/icons/sign.png" alt="" />
+                                <span>Real estate contracts</span>
+                            </div>
+                        </StyledLink>
+                    }
                 </li>
                 <hr></hr>
                 <StyledLink to="/profile">
                     <ProfilDiv>
                         <li><UserImg src={someImg[9]?.url} alt=""></UserImg></li>
-                        <li><UserSpan>{JSON.stringify(usersList[9]?.name).slice(1,-1)}<br /> See profile </UserSpan></li>
+                        <li><UserSpan>{JSON.stringify(usersList[9]?.name).slice(1, -1)}<br /> See profile </UserSpan></li>
                     </ProfilDiv>
                 </StyledLink>
                 <StyledLink to="/privacy">
                     <div>
-                        <img src="./media/icons/privacy.svg" alt=""/>
+                        <img src="./media/icons/privacy.svg" alt="" />
                         <span>Privacy</span>
                     </div>
                 </StyledLink>
                 <StyledLink to="/settings">
                     <div>
-                        <img src="./media/icons/settings.svg" alt=""/>
+                        <img src="./media/icons/settings.svg" alt="" />
                         <span>Settings</span>
                     </div>
                 </StyledLink>

@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/actionTypes/userTypes';
 import { ISingleUser } from '../entities/users';
 import { ISinglePhoto } from '../entities/photos';
 import { ISingleComment } from '../entities/comments';
-import { ISinglePost } from '../entities/posts'
+import { ISinglePost } from '../entities/posts';
 
 export const getUsers = (): Promise<ISingleUser[]> => ((dispatch: Dispatch) => {
 
@@ -20,34 +20,34 @@ export const getUsers = (): Promise<ISingleUser[]> => ((dispatch: Dispatch) => {
 export const getSomeImg = (): Promise<ISinglePhoto[]> => ((dispatch: Dispatch) => {
 
     return fetch('https://jsonplaceholder.typicode.com/photos')
-    .then(response => response.json())
-    .then((someImg: ISinglePhoto[]) => {
-        dispatch({
-            type: actionTypes.GET_IMAGE,
-            someImg
+        .then(response => response.json())
+        .then((someImg: ISinglePhoto[]) => {
+            dispatch({
+                type: actionTypes.GET_IMAGE,
+                someImg
+            })
         })
-    })
 }) as any;
 
 export const getComments = (): Promise<ISingleComment[]> => ((dispatch: Dispatch) => {
 
     return fetch('https://jsonplaceholder.typicode.com/comments')
-    .then(response => response.json())
-    .then((usersComment: ISingleComment[]) => {
-        dispatch({
-            type: actionTypes.GET_COMMENTS,
-            usersComment
+        .then(response => response.json())
+        .then((usersComment: ISingleComment[]) => {
+            dispatch({
+                type: actionTypes.GET_COMMENTS,
+                usersComment
+            })
         })
-    })
 }) as any;
 export const getPosts = (): Promise<ISinglePost[]> => ((dispatch: Dispatch) => {
 
     return fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
-    .then((usersPost: ISingleComment[]) => {
-        dispatch({
-            type: actionTypes.GET_POSTS,
-            usersPost
+        .then(response => response.json())
+        .then((usersPost: ISingleComment[]) => {
+            dispatch({
+                type: actionTypes.GET_POSTS,
+                usersPost
+            })
         })
-    })
 }) as any;

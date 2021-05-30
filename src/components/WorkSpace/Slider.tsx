@@ -13,10 +13,10 @@ const MainSlider = styled.div`
     margin-bottom: 10px;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    ::-webkit-scrollbar{
+    /* ::-webkit-scrollbar{
         width: 0;
-       background: transparent;
-    }
+        background: transparent;
+    } */
     scrollbar-width: none;
     background-color: transparent;
 `;
@@ -43,7 +43,7 @@ const SlideIco = styled.img`
     left: 10px;
     width: 50px;
     height: 50px;
-    background-color: ${ Colors.white };
+    background-color: ${Colors.white};
     padding: 5px;
     z-index: 10;
     border-radius: 3px;
@@ -76,7 +76,7 @@ const SliderNav = styled.div`
 
 const SliderInfo = styled.p`
     position: relative;
-    color: ${ Colors.grey };
+    color: ${Colors.grey};
     top: 45px;
     left: 15px;
     font-size: 10px;
@@ -89,66 +89,66 @@ export const Slider: FC = () => {
 
         <MainSlider id='slider'>
             <MainSlide>
-                <SlideImg src='./media/contract.jpg'/>
-                <SlideIco src='./media/icons/sign.png'/>
+                <SlideImg src='./media/contract.jpg' />
+                <SlideIco src='./media/icons/sign.png' />
                 <SlideH1>Client contract</SlideH1>
                 <SliderNav>
-                    <SlideIcoS src='./media/icons/sign.png'/>
+                    <SlideIcoS src='./media/icons/sign.png' />
                     <p>Contact</p>
                     &bull;
-                    <SlideIcoS src='./media/icons/people.svg'/>
+                    <SlideIcoS src='./media/icons/people.svg' />
                     <p>150 users</p>
                 </SliderNav>
                 <SliderInfo>Last update 2 days ago</SliderInfo>
             </MainSlide>
             <MainSlide>
-                <SlideImg src='./media/contract2.jpg'/>
-                <SlideIco src='./media/icons/sign.png'/>
+                <SlideImg src='./media/contract2.jpg' />
+                <SlideIco src='./media/icons/sign.png' />
                 <SlideH1>Supplier contract</SlideH1>
                 <SliderNav>
-                    <SlideIcoS src='./media/icons/sign.png'/>
+                    <SlideIcoS src='./media/icons/sign.png' />
                     <p>Contact</p>
                     &bull;
-                    <SlideIcoS src='./media/icons/people.svg'/>
+                    <SlideIcoS src='./media/icons/people.svg' />
                     <p>150 users</p>
                 </SliderNav>
                 <SliderInfo>Last update 2 days ago</SliderInfo>
             </MainSlide>
             <MainSlide>
-                <SlideImg src='./media/corpo.jpg'/>
-                <SlideIco src='./media/icons/entities2.svg'/>
+                <SlideImg src='./media/corpo.jpg' />
+                <SlideIco src='./media/icons/entities2.svg' />
                 <SlideH1>Corporate</SlideH1>
                 <SliderNav>
-                    <SlideIcoS src='./media/icons/sign.png'/>
+                    <SlideIcoS src='./media/icons/sign.png' />
                     <p>Contact</p>
                     &bull;
-                    <SlideIcoS src='./media/icons/people.svg'/>
+                    <SlideIcoS src='./media/icons/people.svg' />
                     <p>150 users</p>
                 </SliderNav>
                 <SliderInfo>Last update 2 days ago</SliderInfo>
             </MainSlide>
             <MainSlide>
-                <SlideImg src='./media/libs.jpg'/>
-                <SlideIco src='./media/icons/publications3.png'/>
+                <SlideImg src='./media/libs.jpg' />
+                <SlideIco src='./media/icons/publications3.png' />
                 <SlideH1>Client contract</SlideH1>
                 <SliderNav>
-                    <SlideIcoS src='./media/icons/sign.png'/>
+                    <SlideIcoS src='./media/icons/sign.png' />
                     <p>Contact</p>
                     &bull;
-                    <SlideIcoS src='./media/icons/people.svg'/>
+                    <SlideIcoS src='./media/icons/people.svg' />
                     <p>150 users</p>
                 </SliderNav>
                 <SliderInfo>Last update 2 days ago</SliderInfo>
             </MainSlide>
             <MainSlide>
-                <SlideImg src='./media/libs.jpg'/>
-                <SlideIco src='./media/icons/publications3.png'/>
+                <SlideImg src='./media/libs.jpg' />
+                <SlideIco src='./media/icons/publications3.png' />
                 <SlideH1>Client contract</SlideH1>
                 <SliderNav>
-                    <SlideIcoS src='./media/icons/sign.png'/>
+                    <SlideIcoS src='./media/icons/sign.png' />
                     <p>Contact</p>
                     &bull;
-                    <SlideIcoS src='./media/icons/people.svg'/>
+                    <SlideIcoS src='./media/icons/people.svg' />
                     <p>150 users</p>
                 </SliderNav>
 

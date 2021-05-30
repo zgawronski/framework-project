@@ -91,9 +91,9 @@ const MainPage: FC = () => {
 
                         <Route path="/" exact>
                             <RightSide>
-                            <MainContainer/>
-                            <WorkSpace/>
-                        <ResumeYourWork/>
+                                <MainContainer />
+                                <WorkSpace />
+                                <ResumeYourWork />
                             </RightSide>
                         </Route>
 

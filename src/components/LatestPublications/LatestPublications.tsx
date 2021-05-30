@@ -30,8 +30,6 @@ const Wrapper4 = styled.section`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
 `;
 const MainImg = styled.img`
     margin-top: -5px;
@@ -114,7 +112,6 @@ const BlockF = styled.div`
     bottom:0;
     display: inline-flex;
     text-decoration: none;
-    padding-bottom:  5px;
     padding-left: 5px;
     font-size: ${fontSize[12]};
 `;
@@ -122,16 +119,18 @@ const BlockF = styled.div`
 const BlockUserImg = styled.img`
     width: 12px;
     height: 12px;
-    margin: 0 5px 5px 5px;
-
+    margin: 5px 5px 5px 5px;
     border-radius: 50%;
 `;
 
 const DataP = styled.p`
     color: ${Colors.grey};
+    margin-top: 5px;
 `;
 
-const BlockUser = styled.div``;
+const BlockUser = styled.div`
+    margin-top: 5px;
+`;
 
 export const MainContainer: FC = () => {
     const { someImg, usersList, usersComment, usersPost } = useSelector<IState, IUsersReducer>(state => ({
@@ -140,7 +139,7 @@ export const MainContainer: FC = () => {
 
     const dispatch = useDispatch();
 
-    const [ post, setPost ] = useState<any>([]);
+    const [post, setPost] = useState<any>([]);
 
     useEffect(() => {
         dispatch<GetUsers>(getUsers());
@@ -157,27 +156,27 @@ export const MainContainer: FC = () => {
                 <MainP>{usersComment[9]?.body.slice(1, -50)}</MainP>
                 <BlockImgF>
                     <DataP>7 jan 2020</DataP>
-                    <BlockUserImg src={someImg[0]?.url} alt=""/>
+                    <BlockUserImg src={someImg[0]?.url} alt="" />
                     <BlockUser>{usersList[0]?.name}</BlockUser>
                 </BlockImgF>
             </BlockImgPlace>
             <MainText>
                 <MainTitle>Latest publications</MainTitle>
-                { post.slice(1, 4).map((user: any) =>{
-                    return(
-                    <MainBlocks key={user.id}>
-                    <BlockImg src={someImg[0]?.url} alt=""/>
-                    <div>
-                        <BlockTxt>
-                            <p>{user.body}</p>
-                        </BlockTxt>
-                        <BlockF>
-                            <DataP>7 jan 2020</DataP>
-                            <BlockUserImg src={someImg[0]?.url} alt=""/>
-                            <BlockUser>{user.name}</BlockUser>
-                        </BlockF>
-                    </div>
-                </MainBlocks>)
+                {post.slice(1, 4).map((user: any) => {
+                    return (
+                        <MainBlocks key={user.id}>
+                            <BlockImg src={someImg[0]?.url} alt="" />
+                            <div>
+                                <BlockTxt>
+                                    <p>{user.body}</p>
+                                </BlockTxt>
+                                <BlockF>
+                                    <DataP>7 jan 2020</DataP>
+                                    <BlockUserImg src={someImg[0]?.url} alt="" />
+                                    <BlockUser>{user.name}</BlockUser>
+                                </BlockF>
+                            </div>
+                        </MainBlocks>)
                 })}
 
                 <MainF to="/publications">See more publications</MainF>

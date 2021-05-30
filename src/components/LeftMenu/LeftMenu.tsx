@@ -17,8 +17,6 @@ const WrapperLM = styled.section`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
 `;
 
 const LeftMain = styled.div`
@@ -123,42 +121,42 @@ export const LeftMenu: FC = () => {
 
     return (
         <WrapperLM>
-                <PhotoBox>
-                    <Photo src={someImg[9]?.url}></Photo>
-                    <Sign>{JSON.stringify(usersList[9]?.name)?.slice(1,-1)}</Sign>
-                    <JobDescription>{JSON.stringify(usersList[9]?.company.name)?.slice(1,-1)}</JobDescription>
-                    <CustomHr></CustomHr>
-                    <BoxText>
-                        <CustomText>
-                            <CustomImg src="./media/icons/network.png" alt="" />
-                            <CustomP>Your network</CustomP>
-                            <Link to = "/network">
-                                <ButtonImg src="./media/icons/user-plus.png" alt="" />
-                            </Link>
-                        </CustomText>
-                        <CustomText>
-                            <CustomImg src="./media/icons/publications4.png" alt="" />
-                            <CustomP>Your Publications</CustomP>
-                            <Link to ="/publications">
-                                <ButtonImg src="./media/icons/plus.png" alt="" />
-                            </Link>
-                        </CustomText>
-                    </BoxText>
-                </PhotoBox>
-                <LeftMain>
-                    <LeftColumn>
-                        <CustomImg src="./media/icons/publications3.png" alt="" />
-                        <CustomA to="/publications">Publications</CustomA>
-                    </LeftColumn>
-                    <LeftColumn>
-                        <CustomImg src="./media/icons/ecosystem.png" alt="" />
-                        <CustomA to="/ecosystem">Ecosystem</CustomA>
-                    </LeftColumn>
-                    <LeftColumn>
-                        <CustomImg src="./media/icons/entities2.png" alt="" />
-                        <CustomA to="/entities">Entites</CustomA>
-                    </LeftColumn>
-                </LeftMain>
+            <PhotoBox>
+                <Photo src={someImg[9]?.url}></Photo>
+                <Sign>{JSON.stringify(usersList[9]?.name)?.slice(1, -1)}</Sign>
+                <JobDescription>{JSON.stringify(usersList[9]?.company.name)?.slice(1, -1)}</JobDescription>
+                <CustomHr></CustomHr>
+                <BoxText>
+                    <CustomText>
+                        <CustomImg src="./media/icons/network.png" alt="" />
+                        <CustomP>Your network</CustomP>
+                        <Link to="/network">
+                            <ButtonImg src="./media/icons/user-plus.png" alt="" />
+                        </Link>
+                    </CustomText>
+                    <CustomText>
+                        <CustomImg src="./media/icons/publications4.png" alt="" />
+                        <CustomP>Your Publications</CustomP>
+                        <Link to="/publications">
+                            <ButtonImg src="./media/icons/plus.png" alt="" />
+                        </Link>
+                    </CustomText>
+                </BoxText>
+            </PhotoBox>
+            <LeftMain>
+                <LeftColumn>
+                    <CustomImg src="./media/icons/publications3.png" alt="" />
+                    <CustomA to="/publications">Publications</CustomA>
+                </LeftColumn>
+                <LeftColumn>
+                    <CustomImg src="./media/icons/ecosystem.png" alt="" />
+                    <CustomA to="/ecosystem">Ecosystem</CustomA>
+                </LeftColumn>
+                <LeftColumn>
+                    <CustomImg src="./media/icons/entities2.png" alt="" />
+                    <CustomA to="/entities">Entites</CustomA>
+                </LeftColumn>
+            </LeftMain>
         </WrapperLM>
     );
 };

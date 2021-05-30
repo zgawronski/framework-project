@@ -16,8 +16,6 @@ const WrapperW = styled(Wrapper)`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
     h2{
         font-size: ${fontSize[22]};
         font-weight: 600;
@@ -64,7 +62,7 @@ export const WorkSpace: FC = () => {
         <WrapperW>
             <h2>Workspaces</h2>
             <LButton id='button-left' onClick={() => scroll(-250, 0)}></LButton>
-            <Slider/>
+            <Slider />
             <RButton id='button-right' onClick={() => scroll(250, 0)}></RButton>
         </WrapperW>
     );

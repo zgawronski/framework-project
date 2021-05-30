@@ -26,8 +26,6 @@ const WrapperR = styled(Wrapper)`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
     .pagination {
         display: flex;
         position: relative;
@@ -176,18 +174,18 @@ export const ResumeYourWork: FC = () => {
 
 
 
-    const inputHandler = (e: ChangeEvent<HTMLInputElement>)=> {
-        const text:string = e.target.value;
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const text: string = e.target.value;
         setInputText(text);
 
     }
 
-    const handlePageClick = (data:any) => {
+    const handlePageClick = (data: any) => {
         const selected = data.selected;
         setCurrentPage(selected);
     }
 
-    const currentPosts = posts.slice(currentPage, currentPage +10);
+    const currentPosts = posts.slice(currentPage, currentPage + 10);
 
     return (
         <WrapperR>
@@ -195,23 +193,23 @@ export const ResumeYourWork: FC = () => {
                 <MainTitle>Resume your work</MainTitle>
                 <SearchDiv>
                     <CustomInput type="text" placeholder="Filter by title..." value={inputText} onChange={inputHandler}></CustomInput>
-                    <img src="./media/icons/search.svg" alt=""/>
+                    <img src="./media/icons/search.svg" alt="" />
                 </SearchDiv>
                 <FollowDiv ref={wrapperRef}>
                     <p onClick={menuHandler}>Followed</p>
-                    <img onClick={menuHandler} src="./media/icons/arrow-down.svg" alt=""/>
+                    <img onClick={menuHandler} src="./media/icons/arrow-down.svg" alt="" />
                     {dropdownOpen &&
                         <ExpandedFollowedMenu />
                     }
                 </FollowDiv>
             </TitleContainer>
             <WorkContainer>
-                {inputText === "" ? currentPosts.map((us: any) =>{
-                    return(
+                {inputText === "" ? currentPosts.map((us: any) => {
+                    return (
                         <MainBlocks key={us.id}>
-                            <h3>{us.name.charAt(0).toUpperCase()+us.name.slice(1)}</h3>
+                            <h3>{us.name.charAt(0).toUpperCase() + us.name.slice(1)}</h3>
 
-                            <p>{us.body.charAt(0).toUpperCase()+us.body.slice(1)}</p>
+                            <p>{us.body.charAt(0).toUpperCase() + us.body.slice(1)}</p>
 
                             <FDiv>
                                 <div>
@@ -229,37 +227,38 @@ export const ResumeYourWork: FC = () => {
                                 </div>
                             </FDiv>
                         </MainBlocks>
-                    )}): posts.filter((us: any) => {
-                        if(us.name.toLowerCase().includes(inputText.toLowerCase())){
-                            return us
-                        }else{
-                            return null;
-                        }
-                    }).map((us: any) =>{
-                        return(
-                            <MainBlocks key={us.id}>
-                                <h3>{us.name.charAt(0).toUpperCase()+us.name.slice(1)}</h3>
+                    )
+                }) : posts.filter((us: any) => {
+                    if (us.name.toLowerCase().includes(inputText.toLowerCase())) {
+                        return us
+                    } else {
+                        return null;
+                    }
+                }).map((us: any) => {
+                    return (
+                        <MainBlocks key={us.id}>
+                            <h3>{us.name.charAt(0).toUpperCase() + us.name.slice(1)}</h3>
 
-                                <p>{us.body.charAt(0).toUpperCase()+us.body.slice(1)}</p>
+                            <p>{us.body.charAt(0).toUpperCase() + us.body.slice(1)}</p>
 
-                                <FDiv>
-                                    <div>
-                                        <img src="./media/icons/ecosystem.svg" alt=""></img>
-                                        <p>Subsid. corp.</p>
+                            <FDiv>
+                                <div>
+                                    <img src="./media/icons/ecosystem.svg" alt=""></img>
+                                    <p>Subsid. corp.</p>
                                         &bull;
                                     </div>
-                                    <div className="Corp">
-                                        <img src="./media/icons/entities2.svg" alt=""></img>
-                                        <p>Corporate</p>
+                                <div className="Corp">
+                                    <img src="./media/icons/entities2.svg" alt=""></img>
+                                    <p>Corporate</p>
                                         &bull;
                                     </div>
-                                    <div>
-                                        <p>{us.email}</p>
-                                    </div>
-                                </FDiv>
-                            </MainBlocks>
-                        )
-                    })
+                                <div>
+                                    <p>{us.email}</p>
+                                </div>
+                            </FDiv>
+                        </MainBlocks>
+                    )
+                })
                 }
             </WorkContainer>
             <ReactPaginate

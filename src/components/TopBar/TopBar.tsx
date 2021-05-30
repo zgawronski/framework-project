@@ -22,8 +22,7 @@ const Wrapper2 = styled(Wrapper)`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+
 `;
 
 const InnerWrapper = styled.div`
@@ -136,28 +135,28 @@ export const TopBar: FC = () => {
         toggleDropdown();
     };
 
-    return(
+    return (
         <Wrapper2>
             <InnerWrapper>
-                <LogoImg  src="./media/logo.png"/>
+                <LogoImg src="./media/logo.png" />
 
                 <MenuWrapper ref={wrapperRef}>
                     <LeftSide>
                         <Link to="/">
-                        <CustomImg src="./media/icons/house2.png" alt="" />
+                            <CustomImg src="./media/icons/house2.png" alt="" />
                         </Link>
                         <CustomSpan onClick={menuHandler}>Home</CustomSpan>
                     </LeftSide>
                     <img onClick={menuHandler} src="./media/icons/arrow-down.png" alt="" />
-                   {dropdownOpen &&
+                    {dropdownOpen &&
                         <ExpandedMenu />
                     }
                 </MenuWrapper>
 
                 <InputWrapper>
-                    <CustomInput type="text" placeholder="Search Legalcluster"/>
+                    <CustomInput type="text" placeholder="Search Legalcluster" />
 
-                    <CustomImg src="./media/icons/search.png"/>
+                    <CustomImg src="./media/icons/search.png" />
                 </InputWrapper>
                 <RightIcons>
                     <CustomImg src="./media/icons/house.png" />
