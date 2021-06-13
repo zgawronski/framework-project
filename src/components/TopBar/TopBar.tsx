@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import useDropdown from 'react-dropdown-hook';
 import { Link } from 'react-router-dom';
 
-import { Wrapper } from '../../styledHelpers/Components';
-import { CustomImg } from '../../styledHelpers/Components';
+import { Wrapper, boxShadow, CustomImg } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 
@@ -18,7 +17,7 @@ const Wrapper2 = styled(Wrapper)`
     margin: auto;
     margin-bottom: 10px;
     border-radius: 5px;
-    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
+    ${boxShadow()};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;

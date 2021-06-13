@@ -13,6 +13,8 @@ const WrapperW = styled(Wrapper)`
     width: 970px;
     padding: 0;
     margin: 10px;
+    box-shadow: none;
+    background-color: ${Colors.white};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
