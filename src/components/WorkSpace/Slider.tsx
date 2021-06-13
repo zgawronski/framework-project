@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
-import { boxShadow } from '../../styledHelpers/Components';
 
 const MainSlider = styled.div`
     overflow-x: scroll;
@@ -28,7 +27,7 @@ const MainSlide = styled.div`
     width: 250px;
     height: 200px;
     margin: 5px 10px 5px 0;
-    ${boxShadow()};
+    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
     border-radius: 5px;
 `;
 
@@ -48,7 +47,7 @@ const SlideIco = styled.img`
     padding: 5px;
     z-index: 10;
     border-radius: 3px;
-    ${boxShadow()};
+    box-shadow: 2px 4px 2px 0px ${Colors.lightgrey};
 `;
 
 const SlideH1 = styled.h1`

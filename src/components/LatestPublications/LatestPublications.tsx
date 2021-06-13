@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
-import { boxShadow } from '../../styledHelpers/Components';
 
 import { Link } from 'react-router-dom';
 import { IState } from '../../reducers';
@@ -27,7 +26,7 @@ const Wrapper4 = styled.section`
     margin: 10px;
     background-color: ${Colors.white};
     border-radius: 5px;
-    ${boxShadow()};
+    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;

@@ -2,7 +2,6 @@ import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Colors } from '../../styledHelpers/Colors';
-import { boxShadow } from '../../styledHelpers/Components';
 
 import { IState } from '../../reducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
@@ -20,7 +19,6 @@ const WrapperLM = styled.section`
         sans-serif;
 `;
 
-
 const LeftMain = styled.div`
     margin-top: 10px;
     width: 220px;
@@ -32,10 +30,7 @@ const PhotoBox = styled.div`
     background-color: ${Colors.white};
     text-align: center;
     border-radius: 5px;
-    //box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
-    ${boxShadow()};
-
-
+    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
 `;
 
 const Photo = styled.img`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ReactPaginate from 'react-paginate';
 
 import { Colors } from '../../styledHelpers/Colors';
-import { Wrapper, boxShadow } from '../../styledHelpers/Components';
+import { Wrapper } from '../../styledHelpers/Components';
 import { fontSize } from '../../styledHelpers/FontSizes';
 import useDropdown from 'react-dropdown-hook';
 import { ExpandedFollowedMenu } from './ExpandedFollowedMenu';
@@ -23,8 +23,6 @@ const WrapperR = styled(Wrapper)`
     //overflow: hidden;
     margin: 10px;
     padding: 0;
-    box-shadow: none;
-    background-color: ${Colors.white};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
@@ -69,7 +67,7 @@ const MainBlocks = styled.div`
     margin-bottom: 10px;
     background-color: ${Colors.white};
     border-radius: 5px;
-    ${boxShadow()};
+    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
     margin-left: auto;
     margin-right: auto;
     h3{

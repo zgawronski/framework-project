@@ -18,7 +18,7 @@ const Wrapper2 = styled(Wrapper)`
     margin: auto;
     margin-bottom: 10px;
     border-radius: 5px;
-    box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
+    background-color: ${Colors.white};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
