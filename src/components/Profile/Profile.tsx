@@ -9,133 +9,112 @@ import { IState } from '../../reducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { getSomeImg, getUsers } from '../../actions/usersActions';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 type GetSomeImg = ReturnType<typeof getSomeImg>
 type GetUsers = ReturnType<typeof getUsers>
 
 
 const WrapperProfile = styled.section`
-    display: flex;
     position: relative;
-    width: 100%;
     max-width: 970px;
     min-height: 240px;
-    max-height: 300px;
     margin: 10px;
+    padding: 10px;
     background-color: ${Colors.white};
     border-radius: 5px;
     box-shadow: 2px 4px 8px 0px ${Colors.lightgrey};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
+    .hr{
+        ::after{
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 1px;
+        background-color: ${Colors.lightgrey};
+        };
+    }
 `;
-// const MainImg = styled.img`
-//     margin-top: -5px;
-//     margin-left: -5px;
-//     max-width: 300px;
-//     height: 300px;
-//     border-radius: 5px 0 0 5px;
-// `;
 
-// const MainText = styled.div`
-//     padding: 5px;
+const DivIcons = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-left: 70px;
+    img {
+        width: 20px;
+        height: 20px;
+        padding: 5px
+    }
+    span {
+        padding: 5px;
 
-// `;
+    }
+`;
 
-// const MainTitle = styled.h1`
-//     margin-left: 5px;
-//     font-size: ${fontSize[22]};
-//     font-weight: 600;
-//     color: ${Colors.black};
-// `;
+const DivProfile = styled.div`
+    display:flex;
+    flex-direction: row;
+    margin-left: 20px;
+    figure{
+        color: ${Colors.blue}
+    }
 
-// const MainBlocks = styled.div`
-//     display: flex;
-//     position: relative;
-//     margin-top: 5px;
-// `;
+`;
 
-// const BlockImgPlace = styled.div`
-//     display: flex;
-//     margin: 5px;
-//     border-radius: 3px;
-//     position: relative;
-// `;
+const Photo = styled.img`
+    width: 60px;
+    height: 60px;
+    position: relative;
+    display: flex;
+    margin: auto;
+    border-radius: 50%;
+    padding: 10px;
+`;
 
-// const BlockImg = styled.img`
-//     position: relative;
-//     width: 65px;
-//     margin: 5px;
-//     border-radius: 3px;
-// `;
+const UlInfo = styled.ul`
+    margin-left: 10px;
+    li{
+        padding: 5px;
+    }
+`;
 
-// const MainP = styled.p`
-//     position: absolute;
-//     top: 180px;
-//     left: 20px;
-//     color: ${Colors.white};
-// `;
+const AdressInfo = styled.ul`
+margin-top: 57px;
+margin-left: 40px;
+    li{
+    padding: 5px;
+    }
+`;
 
-// const BlockImgF = styled.div`
-//     display: flex;
-//     position: absolute;
-//     bottom: 20px;
-//     left: 20px;
-//     color: ${Colors.white};
-//     text-decoration: none;
-//     padding: 5px;
-//     font-size: ${fontSize[14]};
-// `;
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: ${Colors.black};
+    rotate: 90deg;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
 
-// const BlockTxt = styled.div`
-//     font-size: ${fontSize[16]};
-//     padding: 5px;
-// `;
-
-// const MainF = styled(Link)`
-//     position: absolute;
-//     color: ${Colors.text};
-//     padding-top: 10px;
-//     margin-left: 5px;
-//     font-size: ${fontSize[16]};
-//     text-decoration: none;
-
-//     &:focus, &:hover, &:visited, &:link, &:active {
-//         text-decoration: none;
-//     }
-// `;
-
-// const BlockF = styled.div`
-//     position: absolute;
-//     bottom:0;
-//     display: inline-flex;
-//     text-decoration: none;
-//     padding-left: 5px;
-//     font-size: ${fontSize[12]};
-// `;
-
-// const BlockUserImg = styled.img`
-//     width: 12px;
-//     height: 12px;
-//     margin: 5px 5px 5px 5px;
-//     border-radius: 50%;
-// `;
-
-// const DataP = styled.p`
-//     color: ${Colors.grey};
-//     margin-top: 5px;
-// `;
-
-// const BlockUser = styled.div`
-//     margin-top: 5px;
-// `;
+const XSpan = styled.span`
+    font-weight: bold;
+`;
 
 export const Profile: FC = () => {
     const { someImg, usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
     const dispatch = useDispatch();
+    useEffect(() => {
+        setName(JSON.stringify(usersList[9]?.name)?.slice(1, -1));
+        setEmail(JSON.stringify(usersList[9]?.email)?.slice(1, -1));
+        setPhone(usersList[9]?.phone);
+    }, [usersList]);
 
     useEffect(() => {
         dispatch<GetUsers>(getUsers());
@@ -144,7 +123,35 @@ export const Profile: FC = () => {
 
     return (
         <WrapperProfile>
-
+            <div className="hr">
+                <DivIcons>
+                    <img src="./media/icons/chat.png" alt="" />
+                    <span>Message</span>
+                    <img src="./media/icons/request.png" alt="" />
+                    <span>Create a request</span>
+                    <img src="./media/icons/cluster.png" alt="" />
+                    <span>Add to a cluster</span>
+                    <StyledLink to="/">
+                        <XSpan>X</XSpan>
+                    </StyledLink>
+                </DivIcons>
+                <DivProfile>
+                    <figure>
+                        <Photo src={someImg[9]?.url}></Photo>
+                        <figcaption>See Profile</figcaption>
+                    </figure>
+                    <UlInfo>
+                        <li>{name}</li>
+                        <li>CliffordChance</li>
+                        <li>New-york</li>
+                        <li>Partner</li>
+                    </UlInfo>
+                    <AdressInfo>
+                        <li><span> {email} </span><br /></li>
+                        <li><span> {phone} </span></li>
+                    </AdressInfo>
+                </DivProfile>
+            </div>
         </WrapperProfile>
     );
 };

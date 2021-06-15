@@ -3,14 +3,15 @@ import styled from 'styled-components';
 
 import { TopBar } from '../TopBar/TopBar';
 import { LeftMenu } from '../LeftMenu/LeftMenu';
+import { MainContainer } from '../LatestPublications/LatestPublications';
+import { WorkSpace } from '../WorkSpace/WorkSpace'
+import { ResumeYourWork } from '../ResumeYourWork/ResumeYourWork';
+import { Profile } from '../Profile/Profile';
 
 //import { Colors } from '../../styledHelpers/Colors';
 
-import { MainContainer } from '../LatestPublications/LatestPublications';
-import { WorkSpace } from '../WorkSpace/WorkSpace'
 import { Route } from 'react-router';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { ResumeYourWork } from '../ResumeYourWork/ResumeYourWork';
 import { useDispatch } from 'react-redux';
 import { getUsers } from '../../actions/usersActions';
 //import { Entities } from '../Entities/Entities';
@@ -88,7 +89,9 @@ const MainPage: FC = () => {
                         <Route path="/logout" exact>
                             <p>logout</p>
                         </Route>
-
+                        <Route path='/profile'>
+                            <Profile />
+                        </Route>
                         <Route path="/" exact>
                             <RightSide>
                                 <MainContainer />
