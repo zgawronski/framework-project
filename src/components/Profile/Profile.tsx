@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
-//import { fontSize } from '../../styledHelpers/FontSizes';
+import { fontSize } from '../../styledHelpers/FontSizes';
 
 //import { Link } from 'react-router-dom';
 import { IState } from '../../reducers';
@@ -17,7 +17,7 @@ type GetUsers = ReturnType<typeof getUsers>
 
 const WrapperProfile = styled.section`
     position: relative;
-    max-width: 970px;
+    width: 550px;
     min-height: 240px;
     margin: 10px;
     padding: 10px;
@@ -41,7 +41,7 @@ const WrapperProfile = styled.section`
 const DivIcons = styled.div`
     display: flex;
     flex-direction: row;
-    margin-left: 70px;
+    margin-left: 110px;
     img {
         width: 20px;
         height: 20px;
@@ -81,8 +81,8 @@ const UlInfo = styled.ul`
 `;
 
 const AdressInfo = styled.ul`
-margin-top: 57px;
-margin-left: 40px;
+    margin-top: 57px;
+    margin-left: 40px;
     li{
     padding: 5px;
     }
@@ -100,6 +100,91 @@ const StyledLink = styled(Link)`
 const XSpan = styled.span`
     font-weight: bold;
 `;
+
+const EditImg = styled.img`
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    width:15px;
+`;
+
+const DivSecond = styled.div`
+    display: grid;
+    grid-template-columns: 135px 145px 145px;
+    grid-gap: 5px;
+    position: relative;
+    img{
+        top: 10px;
+        right: 10px;
+    }
+    h4{
+        padding: 5px;
+        grid-column: 1/3;
+        color: ${Colors.grey}
+    }
+
+`;
+const BlueSpan = styled.span`
+    font-size: ${fontSize[12]};
+    color: ${Colors.blue};
+    background-color: ${Colors.aquaBody};
+    grid-column: 1;
+    padding: 5px;
+`;
+const BlueSpan2 = styled.span`
+    font-size: ${fontSize[12]};
+    color: ${Colors.blue};
+    background: ${Colors.aquaBody};
+    grid-column: 2;
+    padding: 5px;
+`;
+
+const DivInformation = styled.div`
+    padding: 5px;
+    h3{
+        font-weight: 600;
+        margin-top: 20px;
+    }
+    p{
+        margin-top: 20px;
+        color: ${Colors.grey};
+    }
+    h4{
+        margin-top: 10px;
+    }
+    input{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        border: none;
+        color: ${Colors.black};
+        background-color: ${Colors.lightgrey};
+    }
+`;
+
+const DivPhoto = styled.div`
+    display: flex;
+    flex-direction: row;
+    background-color: ${Colors.lightgrey};
+    align-items: center;
+    input{
+        font-size: ${fontSize[14]};
+        background-color: ${Colors.bodycolor};
+        width: 150px;
+        margin-right: 30px;
+    }
+    img {
+        width: 20px;
+        height: 20px;
+        padding: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+    span {
+        padding: 5px;
+
+    }`;
 
 export const Profile: FC = () => {
     const { someImg, usersList } = useSelector<IState, IUsersReducer>(state => ({
@@ -146,11 +231,58 @@ export const Profile: FC = () => {
                         <li>New-york</li>
                         <li>Partner</li>
                     </UlInfo>
+                    <EditImg src="./media/icons/edit.png" alt="" />
                     <AdressInfo>
                         <li><span> {email} </span><br /></li>
                         <li><span> {phone} </span></li>
                     </AdressInfo>
                 </DivProfile>
+            </div>
+            <div className="hr">
+                <DivSecond>
+                    <EditImg src="./media/icons/edit.png" alt="" />
+                    <h4>Expertise</h4>
+                    <BlueSpan>Merges and acquisition</BlueSpan>
+                    <h4>Specialities</h4>
+                    <BlueSpan>Cross border operation</BlueSpan>
+                    <BlueSpan2>Transaction over 500M€/$</BlueSpan2>
+                    <h4>Admission to practice law</h4>
+                    <BlueSpan>Paris bar association</BlueSpan>
+                    <BlueSpan2>Tunisian bar association</BlueSpan2>
+                    <h4>Counties</h4>
+                    <BlueSpan>Tunisia</BlueSpan>
+                </DivSecond>
+            </div>
+            <div className="hr">
+                <DivInformation>
+                    <h3>Panel information</h3>
+                    <p>Hourly fee</p>
+                    <h4>610€/hour (Negociated)</h4>
+                    <p>Terms & conditions</p>
+                    <h4>Monthly 10k€ retainer - see with Jeanny Smith</h4>
+                    <input placeholder="Attachment_lorem-ipsum.jpg"></input>
+                    <h3>Services & projects</h3>
+                    <h4>Corporate M&A and international acquisitions</h4>
+                    <h3>Internatl correspondants</h3>
+                    <DivPhoto>
+                        <Photo src={someImg[9]?.url}></Photo>
+                        <input placeholder="Fistname Lastname" />
+                        <img src="./media/icons/chat.png" alt="" />
+                        <span>Message</span>
+                        <img src="./media/icons/network.png" alt="" />
+                        <span>profile</span>
+
+                    </DivPhoto>
+                    <DivPhoto>
+                        <Photo src={someImg[9]?.url}></Photo>
+                        <input placeholder="Fistname Lastname" />
+                        <img src="./media/icons/chat.png" alt="" />
+                        <span>Message</span>
+                        <img src="./media/icons/network.png" alt="" />
+                        <span>profile</span>
+
+                    </DivPhoto>
+                </DivInformation>
             </div>
         </WrapperProfile>
     );
