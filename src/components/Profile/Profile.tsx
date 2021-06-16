@@ -58,7 +58,7 @@ const DivProfile = styled.div`
     flex-direction: row;
     margin-left: 20px;
     figure{
-        color: ${Colors.blue}
+        color: ${Colors.textBlue}
     }
 
 `;
@@ -126,14 +126,14 @@ const DivSecond = styled.div`
 `;
 const BlueSpan = styled.span`
     font-size: ${fontSize[12]};
-    color: ${Colors.blue};
+    color: ${Colors.textBlue};
     background-color: ${Colors.aquaBody};
     grid-column: 1;
     padding: 5px;
 `;
 const BlueSpan2 = styled.span`
     font-size: ${fontSize[12]};
-    color: ${Colors.blue};
+    color: ${Colors.textBlue};
     background: ${Colors.aquaBody};
     grid-column: 2;
     padding: 5px;
@@ -158,14 +158,14 @@ const DivInformation = styled.div`
         width: 100%;
         border: none;
         color: ${Colors.black};
-        background-color: ${Colors.lightgrey};
+        background-color: ${Colors.bodycolor};
     }
 `;
 
 const DivPhoto = styled.div`
     display: flex;
     flex-direction: row;
-    background-color: ${Colors.lightgrey};
+    background-color: ${Colors.bodycolor};
     align-items: center;
     input{
         font-size: ${fontSize[14]};
@@ -185,6 +185,41 @@ const DivPhoto = styled.div`
         padding: 5px;
 
     }`;
+
+const DivProposals = styled.div`
+    position: relative;
+    padding: 5px;
+    .tabelka{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        column-count: 6;
+        column-width: 16%;
+    }
+    h2{
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    h3{
+        font-size: ${fontSize[14]};
+        font-weight: 600;
+        width: 50px;
+        margin: 10px 20px 0px 20px;
+    }
+    h4{
+        width: 50px;
+        margin: 10px 20px 10px 20px;
+        font-size: ${fontSize[14]};
+    }
+    span{
+        position: absolute;
+        bottom: -10px;
+        right: 5px;
+        color: ${Colors.textBlue};
+    }
+
+`;
 
 export const Profile: FC = () => {
     const { someImg, usersList } = useSelector<IState, IUsersReducer>(state => ({
@@ -283,6 +318,44 @@ export const Profile: FC = () => {
 
                     </DivPhoto>
                 </DivInformation>
+            </div>
+            <div className="hr">
+                <DivProposals>
+                    <h2>Proposals</h2>
+                    <div className="tabelka">
+                        <h3>Name</h3>
+                        <h3>Entity</h3>
+                        <h3>Location</h3>
+                        <h3>Expertise</h3>
+                        <h3>Date</h3>
+                        <h3>Firm</h3>
+                    </div>
+                </DivProposals>
+            </div>
+            <div className="hr">
+                <DivProposals>
+                    <div className="tabelka">
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                        <h4>asdfasdf</h4>
+                    </div>
+                    <span>See more proposals</span>
+                </DivProposals>
             </div>
         </WrapperProfile>
     );

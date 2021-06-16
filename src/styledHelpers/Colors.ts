@@ -11,5 +11,6 @@ export const Colors = {
     hrgrey: 'rgba(143, 143, 143, 0.171)',
     text: '#005581',
     shadowBlue: '#232C47',
-    aquaBody: '#dbebeb'
+    aquaBody: '#dbebeb',
+    textBlue: '#00AAFF'
 }
