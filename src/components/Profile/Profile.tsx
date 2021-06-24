@@ -1,10 +1,9 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 
-//import { Link } from 'react-router-dom';
 import { IState } from '../../reducers';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { getSomeImg, getUsers } from '../../actions/usersActions';
@@ -80,9 +79,9 @@ const Photo = styled.img`
     padding: 10px;
 `;
 
-const UlInfo = styled.ul`
+const DivInfo = styled.div`
     margin-left: 10px;
-    li{
+    p{
         padding: 5px;
     }
 `;
@@ -97,22 +96,34 @@ const AdressInfo = styled.ul`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color: ${Colors.black};
-    rotate: 90deg;
-    &:focus, &:hover, &:visited, &:link, &:active {
+        &:focus, &:hover, &:visited, &:link, &:active {
         text-decoration: none;
     }
+    button {
+        width: 20px;
+        height: 20px;
+        color: ${Colors.white};
+        font-weight: bold;
+        border: none;
+        border-radius: 50%;
+        background-color: ${Colors.grey};
+    }
+
 `;
 
-const XSpan = styled.span`
-    font-weight: bold;
-`;
 
-const EditImg = styled.img`
+const EditButton = styled.button`
     position: absolute;
-    right: 20px;
+    right: 40px;
     top: 50px;
-    width:15px;
+    width: 25px;
+    height: 25px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    img {
+        width: 15px;
+    };
 `;
 
 const DivSecond = styled.div`
@@ -253,14 +264,25 @@ export const Profile: FC = () => {
     const { someImg, usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
-    const [name, setName] = useState('');
+    const [turnEditionProfile, setTurnEditionProfile] = useState(false);
+    const [name, setName] = useState<string>('');
+    const [company, setCompany] = useState<string>('');
+    const [city, setCity] = useState('');
+    const [relation, setRelation] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
 
+
+
     const dispatch = useDispatch();
+
     useEffect(() => {
-        setName(JSON.stringify(usersList[9]?.name)?.slice(1, -1));
-        setEmail(JSON.stringify(usersList[9]?.email)?.slice(1, -1));
+        setTurnEditionProfile(false);
+        setName(usersList[9]?.name);
+        setCompany(usersList[9]?.company.name);
+        setCity(usersList[9]?.address.city);
+        setRelation('Partner');
+        setEmail(usersList[9]?.email);
         setPhone(usersList[9]?.phone);
     }, [usersList]);
 
@@ -268,6 +290,47 @@ export const Profile: FC = () => {
         dispatch<GetUsers>(getUsers());
         dispatch<GetSomeImg>(getSomeImg());
     }, [dispatch]);
+
+    useEffect(() => {
+        setTurnEditionProfile(false);
+        setName(usersList[9]?.name);
+        setCompany(usersList[9]?.company.name);
+        setCity(usersList[9]?.address.city);
+        setRelation('Partner');
+        setEmail(usersList[9]?.email);
+        setPhone(usersList[9]?.phone);
+    }, [usersList])
+
+    const inputHandler = (event: ChangeEvent<HTMLInputElement>, type: string) => {
+        switch (type) {
+            case 'name':
+                setName(event.target.value);
+                break;
+            case 'company':
+                setCompany(event.target.value);
+                break;
+            case 'city':
+                setCity(event.target.value);
+                break;
+            case 'relation':
+                setRelation(event.target.value);
+                break;
+            case 'email':
+                setEmail(event.target.value);
+                break;
+            case 'phone':
+                setPhone(event.target.value);
+                break;
+            default:
+                console.log("has no Change");
+        }
+    }
+    const editBtn = (event: Event) => {
+        const ev = ((event.target) as Element).id;
+        if (ev === 'btnOnEditionProfile' || ev === 'btnOnEditionProfileImg')
+            turnEditionProfile ? setTurnEditionProfile(false) : setTurnEditionProfile(true);
+        console.log('przyszla poszla i nie doszla');
+    }
 
     return (
         <WrapperProfile>
@@ -277,7 +340,7 @@ export const Profile: FC = () => {
                     <button><img src="./media/icons/request.png" alt="" />Create a request</button>
                     <button><img src="./media/icons/cluster.png" alt="" />Add to a cluster</button>
                     <StyledLink to="/">
-                        <XSpan>X</XSpan>
+                        <button>X</button>
                     </StyledLink>
                 </DivIcons>
                 <DivProfile>
@@ -285,22 +348,44 @@ export const Profile: FC = () => {
                         <Photo src={someImg[9]?.url}></Photo>
                         <figcaption>See Profile</figcaption>
                     </figure>
-                    <UlInfo>
-                        <li>{name}</li>
-                        <li>CliffordChance</li>
-                        <li>New-york</li>
-                        <li>Partner</li>
-                    </UlInfo>
-                    <EditImg src="./media/icons/edit.png" alt="" />
+                    <DivInfo>
+
+                        {turnEditionProfile !== true ?
+                            <p key='p1'>{name}</p> :
+                            <input key='input1' value={name} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => inputHandler(event, 'name')} />
+                        }
+                        {turnEditionProfile !== true ?
+                            <p key='p2'>{company}</p> :
+                            <input key='input2' value={company} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => inputHandler(event, 'company')} />
+                        }
+                        {turnEditionProfile !== true ?
+                            <p key='p3'>{city}</p> :
+                            <input key='input3' value={city} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => inputHandler(event, 'city')} />
+                        }
+                        {turnEditionProfile !== true ?
+                            <p key='p4'>Partner</p> :
+                            <input key='input4' value={relation} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => inputHandler(event, 'relation')} />
+
+                        }
+                    </DivInfo>
                     <AdressInfo>
-                        <li><span> {email} </span><br /></li>
-                        <li><span> {phone} </span></li>
+                        <EditButton id='btnOnEditionProfile' onClick={(ev: any) => editBtn(ev)}><img id='btnOnEditionProfileImg' src="./media/icons/edit.png" alt="" /></EditButton>
+                        {turnEditionProfile !== true ?
+                            <p key='p5'>{email}</p> :
+                            <input key='input5' value={email} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => inputHandler(event, 'email')} />
+
+                        }
+                        {turnEditionProfile !== true ?
+                            <p key='p6'>{phone}</p> :
+                            <input key='input6' value={phone} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => inputHandler(event, 'phone')} />
+
+                        }
                     </AdressInfo>
                 </DivProfile>
             </div>
             <div className="hr">
                 <DivSecond>
-                    <EditImg src="./media/icons/edit.png" alt="" />
+                    <EditButton id='btnOnEditionProfile' onClick={(ev: any) => editBtn(ev)}><img src='./media/icons/edit.png' alt='' /></EditButton>
                     <h4>Expertise</h4>
                     <BlueSpan>Merges and acquisition</BlueSpan>
                     <h4>Specialities</h4>
@@ -320,7 +405,7 @@ export const Profile: FC = () => {
                     <h4>610€/hour (Negociated)</h4>
                     <p>Terms & conditions</p>
                     <h4>Monthly 10k€ retainer - see with Jeanny Smith</h4>
-                    <input placeholder="Attachment_lorem-ipsum.jpg"></input>
+                    <input placeholder="Attachment_lorem-ipsum.jpg" />
                     <h3>Services & projects</h3>
                     <h4>Corporate M&A and international acquisitions</h4>
                     <h3>Internatl correspondants</h3>
