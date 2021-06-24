@@ -6,9 +6,6 @@ import { Colors } from '../../styledHelpers/Colors';
 import { Wrapper, boxShadow } from '../../styledHelpers/Components';
 import { fontSize } from '../../styledHelpers/FontSizes';
 
-import useDropdown from 'react-dropdown-hook';
-import { ExpandedFollowedMenu } from './ExpandedFollowedMenu';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers, getComments } from '../../actions/usersActions';
 import { IState } from '../../reducers';
@@ -149,12 +146,7 @@ const FDiv = styled.div`
     }
 `;
 
-export const ResumeYourWork: FC = () => {
-    const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
-
-    const menuHandler = () => {
-        toggleDropdown();
-    };
+export const Publications: FC = () => {
 
     const { usersComment } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
@@ -193,17 +185,14 @@ export const ResumeYourWork: FC = () => {
     return (
         <WrapperR>
             <TitleContainer>
-                <MainTitle>Resume your work</MainTitle>
+                <MainTitle>Publications</MainTitle>
                 <SearchDiv>
                     <CustomInput type="text" placeholder="Filter by title..." value={inputText} onChange={inputHandler} />
                     <img src="./media/icons/search.svg" alt="" />
                 </SearchDiv>
-                <FollowDiv ref={wrapperRef}>
-                    <p onClick={menuHandler}>Followed</p>
-                    <img onClick={menuHandler} src="./media/icons/arrow-down.svg" alt="" />
-                    {dropdownOpen &&
-                        <ExpandedFollowedMenu />
-                    }
+                <FollowDiv>
+                    <p >Followed</p>
+                    <img src="./media/icons/arrow-down.svg" alt="" />
                 </FollowDiv>
             </TitleContainer>
             <WorkContainer>

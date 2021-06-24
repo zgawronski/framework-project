@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 import { TopBar } from '../TopBar/TopBar';
 import { LeftMenu } from '../LeftMenu/LeftMenu';
-import { MainContainer } from '../LatestPublications/LatestPublications';
+import { LatestPublications } from '../LatestPublications/LatestPublications';
 import { WorkSpace } from '../WorkSpace/WorkSpace'
 import { ResumeYourWork } from '../ResumeYourWork/ResumeYourWork';
 import { Profile } from '../Profile/Profile';
+import { Publications } from '../Publications/Publications';
+import { Entities } from '../Entities/Entities';
+import { Administration } from '../Administration/Administration';
 
 //import { Colors } from '../../styledHelpers/Colors';
 
@@ -51,19 +54,19 @@ const MainPage: FC = () => {
                             <p>network</p>
                         </Route>
                         <Route path="/publications" exact>
-                            <p>publications</p>
+                            <Publications />
                         </Route>
                         <Route path="/ecosystem" exact>
-                            <p>ecosystem</p>
+                            <Publications />
                         </Route>
                         <Route path="/people" exact>
                             <p>people</p>
                         </Route>
                         <Route path="/entities" exact>
-                            <p>entities</p>
+                            <Entities />
                         </Route>
                         <Route path="/administration" exact>
-                            <p>administration</p>
+                            <Administration />
                         </Route>
                         <Route path="/client_contract" exact>
                             <p>client contract</p>
@@ -94,7 +97,7 @@ const MainPage: FC = () => {
                         </Route>
                         <Route path="/" exact>
                             <RightSide>
-                                <MainContainer />
+                                <LatestPublications />
                                 <WorkSpace />
                                 <ResumeYourWork />
                             </RightSide>

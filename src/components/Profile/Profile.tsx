@@ -81,15 +81,15 @@ const Photo = styled.img`
 
 const DivInfo = styled.div`
     margin-left: 10px;
-    p{
+    p {
         padding: 5px;
     }
 `;
 
-const AdressInfo = styled.ul`
+const AdressInfo = styled.div`
     margin-top: 57px;
     margin-left: 40px;
-    li{
+    p {
     padding: 5px;
     }
 `;
@@ -505,26 +505,15 @@ export const Profile: FC = () => {
             <DivAmount>
                 <h2>Amount of fees</h2>
                 <table>
-                    <tr>
-                        <td>Year</td> <td>Cost center</td> <td>Total amount</td> <td>Law firm</td>
-                    </tr>
-                    <tr>
-                        <td>2019</td> <td>CS 153</td> <td> 3 500€</td> <td>Clifford chance</td>
-                    </tr>
-                    <tr>
-                        <td>2018</td> <td>CS 153</td> <td> 9 500€</td> <td>Linklaters</td>
-                    </tr>
-                    <tr>
-                        <td>2017</td> <td>CS 47</td> <td>10 500€</td> <td>Linklaters</td>
-                    </tr>
-                    <tr>
-                        <td></td> <td>CS 153</td> <td>18 500€</td> <td>Linklaters</td>
-                    </tr>
-                    <tr>
-                        <td></td> <td>CS 32</td> <td>15 500€</td> <td>Linklaters</td>
-                    </tr>
+                    <tbody>
+                        <tr><td>Year</td><td>Cost center</td><td>Total amount</td><td>Law firm</td></tr>
+                        <tr><td>2019</td><td>CS 153</td><td> 3 500€</td><td>Clifford chance</td></tr>
+                        <tr><td>2018</td><td>CS 153</td><td> 9 500€</td><td>Linklaters</td></tr>
+                        <tr><td>2017</td><td>CS 47</td><td>10 500€</td><td>Linklaters</td></tr>
+                        <tr><td></td><td>CS 153</td><td>18 500€</td><td>Linklaters</td></tr>
+                        <tr><td></td><td>CS 32</td><td>15 500€</td><td>Linklaters</td></tr>
+                    </tbody>
                 </table>
-
             </DivAmount>
         </WrapperProfile >
     );
