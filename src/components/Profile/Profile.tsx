@@ -84,6 +84,9 @@ const DivInfo = styled.div`
     p {
         padding: 5px;
     }
+    input {
+        padding: 5px;
+    }
 `;
 
 const AdressInfo = styled.div`
@@ -140,7 +143,20 @@ const DivSecond = styled.div`
         grid-column: 1/3;
         color: ${Colors.grey}
     }
-
+    input{
+        ${fontSize[12]};
+        color: ${Colors.textBlue};
+        background-color: ${Colors.aquaBody};
+        grid-column: 1;
+        padding: 5px;
+    }
+    .input2{
+        font-size: ${fontSize[12]};
+        color: ${Colors.textBlue};
+        background: ${Colors.aquaBody};
+        grid-column: 2;
+        padding: 5px;
+    }
 `;
 const BlueSpan = styled.span`
     font-size: ${fontSize[12]};
@@ -202,7 +218,8 @@ const DivPhoto = styled.div`
     span {
         padding: 5px;
 
-    }`;
+    }
+`;
 
 const DivProposals = styled.div`
     position: relative;
@@ -261,45 +278,58 @@ const DivAmount = styled.div`
 
 
 export const Profile: FC = () => {
+
     const { someImg, usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
+
     const [turnEditionProfile, setTurnEditionProfile] = useState(false);
     const [name, setName] = useState<string>('');
     const [company, setCompany] = useState<string>('');
-    const [city, setCity] = useState('');
-    const [relation, setRelation] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    const [city, setCity] = useState<string>('');
+    const [relation, setRelation] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
 
+    const [turnEditionContent, setTurnEditionContent] = useState(false);
 
+    const [expertise, setExpertise] = useState<string>('');
+    const [specialities, setSpecialities] = useState<string>('');
+    const [specialitiesT, setSpecialitiesT] = useState<string>('');
+    const [admission, setAdmission] = useState<string>('');
+    const [admissionT, setAdmissionT] = useState<string>('');
+    const [counties, setCounties] = useState<string>('');
+    // const [hourlyFee, setHourlyFee] = useState<string>('');
+    // const [terms, setTerms] = useState<string>('');
+    // const [services, setServices] = useState<string>('');
+    // const [attachment, setAttachment] = useState<string>('');
+    // const [proposals, setProposals] = useState<string>('');
+    // const [internalReviews, setinternalReviews] = useState<string>('');
+    // const [amount, setAmount] = useState<string>('');
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         setTurnEditionProfile(false);
+        setTurnEditionContent(false);
         setName(usersList[9]?.name);
         setCompany(usersList[9]?.company.name);
         setCity(usersList[9]?.address.city);
         setRelation('Partner');
         setEmail(usersList[9]?.email);
         setPhone(usersList[9]?.phone);
+        setExpertise('Merges and acquisition');
+        setSpecialities('Cross border operation');
+        setSpecialitiesT('Transaction over 500M€/$');
+        setAdmissionT('Tunisian bar association');
+        setAdmission('Paris bar association');
+        setCounties('Tunisia');
     }, [usersList]);
 
     useEffect(() => {
         dispatch<GetUsers>(getUsers());
         dispatch<GetSomeImg>(getSomeImg());
     }, [dispatch]);
-
-    useEffect(() => {
-        setTurnEditionProfile(false);
-        setName(usersList[9]?.name);
-        setCompany(usersList[9]?.company.name);
-        setCity(usersList[9]?.address.city);
-        setRelation('Partner');
-        setEmail(usersList[9]?.email);
-        setPhone(usersList[9]?.phone);
-    }, [usersList])
 
     const inputHandler = (event: ChangeEvent<HTMLInputElement>, type: string) => {
         switch (type) {
@@ -329,9 +359,68 @@ export const Profile: FC = () => {
         const ev = ((event.target) as Element).id;
         if (ev === 'btnOnEditionProfile' || ev === 'btnOnEditionProfileImg')
             turnEditionProfile ? setTurnEditionProfile(false) : setTurnEditionProfile(true);
-        console.log('przyszla poszla i nie doszla');
+        else if (ev === "btnOnEditionContent" || ev === "btnOnEditionContentImg")
+            turnEditionContent ? setTurnEditionContent(false) : setTurnEditionContent(true);
     }
 
+    const changeItemsFromContent = (event: ChangeEvent<HTMLInputElement>, type: string) => {
+        switch (type) {
+            case 'expertise':
+                setExpertise(event.target.value);
+                break;
+            case 'specialities':
+                setSpecialities(event.target.value);
+                break;
+            case 'specialitiesT':
+                setSpecialitiesT(event.target.value);
+                break;
+            case 'admission':
+                setAdmission(event.target.value);
+                break;
+            case 'admissionT':
+                setAdmissionT(event.target.value);
+                break;
+            case 'counties':
+                setCounties(event.target.value);
+                break;
+            // case 'hourlyFee':
+            //     setHourlyFee(event.target.value);
+            //     break;
+            // case 'terms':
+            //     setTerms(event.target.value);
+            //     break;
+            // case 'services':
+            //     setServices(event.target.value);
+            //     break;
+            // case 'attachment':
+            //     setAttachment(event.target.value);
+            //     break;
+            // case 'proposalsName':
+            // case 'proposalsEntity':
+            // case 'proposalsLocation':
+            // case 'proposalsExpertise':
+            // case 'proposalsDate':
+            // case 'proposalsFirm':
+            //     setProposals(event.target.value);
+            //     break;
+            // case 'internalReviewsName':
+            // case 'internalReviewsEntity':
+            // case 'internalReviewsLocation':
+            // case 'internalReviewsExpertise':
+            // case 'internalReviewsDate':
+            //     setinternalReviews(event.target.value);
+            //     break;
+            // case 'amountYear':
+            // case 'amountCostCenter':
+            // case 'amountTotalAmount':
+            // case 'amountLawFirm':
+            //     setAmount(event.target.value);
+            //     break;
+
+            default:
+                console.log("has no Change");;
+        }
+    }
     return (
         <WrapperProfile>
             <div className="hr">
@@ -385,17 +474,41 @@ export const Profile: FC = () => {
             </div>
             <div className="hr">
                 <DivSecond>
-                    <EditButton id='btnOnEditionProfile' onClick={(ev: any) => editBtn(ev)}><img src='./media/icons/edit.png' alt='' /></EditButton>
+                    <EditButton id='btnOnEditionContent' onClick={(ev: any) => editBtn(ev)}><img id='btnOnEditionContentImg' src='./media/icons/edit.png' alt='' /></EditButton>
                     <h4>Expertise</h4>
-                    <BlueSpan>Merges and acquisition</BlueSpan>
+                    {turnEditionContent !== true ?
+                        <BlueSpan>{expertise}</BlueSpan>
+                        :
+                        <input key='input7' value={expertise} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => changeItemsFromContent(event, 'expertise')} />
+                    }
                     <h4>Specialities</h4>
-                    <BlueSpan>Cross border operation</BlueSpan>
-                    <BlueSpan2>Transaction over 500M€/$</BlueSpan2>
+                    {turnEditionContent !== true ?
+                        <BlueSpan>{specialities}</BlueSpan>
+                        :
+                        <input key='input8' value={specialities} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => changeItemsFromContent(event, 'specialities')} />
+                    }
+                    {turnEditionContent !== true ?
+                        <BlueSpan2>{specialitiesT}</BlueSpan2>
+                        :
+                        <input className='input2' key='input9' value={specialitiesT} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => changeItemsFromContent(event, 'specialitiesT')} />
+                    }
                     <h4>Admission to practice law</h4>
-                    <BlueSpan>Paris bar association</BlueSpan>
-                    <BlueSpan2>Tunisian bar association</BlueSpan2>
+                    {turnEditionContent !== true ?
+                        <BlueSpan>{admission}</BlueSpan>
+                        :
+                        <input key='input10' value={admission} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => changeItemsFromContent(event, 'admission')} />
+                    }
+                    {turnEditionContent !== true ?
+                        <BlueSpan2>{admissionT}</BlueSpan2>
+                        :
+                        <input className='input2' key='input11' value={admissionT} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => changeItemsFromContent(event, 'admissionT')} />
+                    }
                     <h4>Counties</h4>
-                    <BlueSpan>Tunisia</BlueSpan>
+                    {turnEditionContent !== true ?
+                        <BlueSpan>{counties}</BlueSpan> :
+                        <input key='input12' value={counties} type='text' onChange={(event: ChangeEvent<HTMLInputElement>) => changeItemsFromContent(event, 'counties')} />
+                    }
+
                 </DivSecond>
             </div>
             <div className="hr">
